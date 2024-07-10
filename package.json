@@ -1,0 +1,44 @@
+{
+  "name": "web-guaparo",
+  "version": "0.0.1",
+  "description": "Sitio web del centro comercial Guaparo acerca de sus tiendas, servicios, ubicacion, contacto y redes sociales.",
+  "main": ".eleventy.js",
+  "type": "module",
+  "scripts": {
+    "dev": "npx @11ty/eleventy --serve",
+    "build": "rm -rf dist && npx @11ty/eleventy --pathprefix=/",
+    "deploy-gh-pages": "rm -rf dist && npx @11ty/eleventy --pathprefix=/web-guaparo/ && gh-pages -d dist"
+  },
+  "keywords": [
+    "centrocomercial",
+    "guaparo",
+    "tiendas",
+    "web"
+  ],
+  "author": "alfoncito",
+  "license": "MIT",
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1",
+    "gh-pages": "^6.1.1",
+    "prettier-plugin-jinja-template": "^1.4.1",
+    "sass": "^1.77.6"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.3"
+  },
+  "prettier": {
+    "plugins": [
+      "prettier-plugin-jinja-template"
+    ],
+    "overrides": [
+      {
+        "files": [
+          "*.njk"
+        ],
+        "options": {
+          "parser": "jinja-template"
+        }
+      }
+    ]
+  }
+}
