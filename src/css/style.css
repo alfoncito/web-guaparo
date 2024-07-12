@@ -1,0 +1,156 @@
+:root {
+  --gp-purple-50: #f7f6fc;
+  --gp-purple-100: #f0eff8;
+  --gp-purple-200: #e3e1f3;
+  --gp-purple-300: #cdc8ea;
+  --gp-purple-400: #b3a8dd;
+  --gp-purple-500: #9987ce;
+  --gp-purple-600: #846abd;
+  --gp-purple-700: #7357aa;
+  --gp-purple-800: #60498e;
+  --gp-purple-900: #503d75;
+  --gp-purple-900: #33274e;
+  --gp-blue-50: #f1f9fe;
+  --gp-blue-100: #e1f3fd;
+  --gp-blue-200: #bde6fa;
+  --gp-blue-300: #83d3f6;
+  --gp-blue-400: #5fc8f2;
+  --gp-blue-500: #18a5df;
+  --gp-blue-600: #0b85be;
+  --gp-blue-700: #0a6a9a;
+  --gp-blue-800: #0d597f;
+  --gp-blue-900: #104b6a;
+  --gp-blue-950: #0b2f46;
+  --gp-purple-grey-50: #f3f7fa;
+  --gp-purple-grey-100: #eaeff5;
+  --gp-purple-grey-200: #d8e2ed;
+  --gp-purple-grey-300: #c0cfe1;
+  --gp-purple-grey-400: #a6b6d3;
+  --gp-purple-grey-500: #8f9ec5;
+  --gp-purple-grey-600: #7784b4;
+  --gp-purple-grey-700: #636e9c;
+  --gp-purple-grey-800: #535c80;
+  --gp-purple-grey-900: #474e68;
+  --gp-purple-grey-950: #2a2e3c;
+  --gp-grey-50: #f7f7f6;
+  --gp-grey-100: #e5e5e2;
+  --gp-grey-200: #c9cac5;
+  --gp-grey-300: #a6a8a0;
+  --gp-grey-400: #82857c;
+  --gp-grey-500: #686b61;
+  --gp-grey-600: #52554c;
+  --gp-grey-700: #44463f;
+  --gp-grey-800: #393a35;
+  --gp-grey-900: #2a2b28;
+  --gp-grey-950: #1a1b18;
+}
+
+.carousel {
+  width: 100%;
+}
+
+.carousel-item {
+  width: 100%;
+  height: 90vh;
+}
+
+.carousel__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carousel__content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  color: #bde6fa;
+  background-image: linear-gradient(to right, #60498e, transparent);
+}
+
+.carousel-title {
+  width: 80%;
+}
+
+.shops-tape {
+  background-color: var(--gp-grey-100);
+}
+
+.shops-tape__anim {
+  animation: move-tape 7s linear infinite normal;
+}
+
+.shops-tape__anim.reverse {
+  animation-direction: reverse;
+}
+
+.shops-tape__anim:has(.shop-logo-card:hover) {
+  animation-play-state: paused;
+}
+
+.shops-tape__mask {
+  mask-image: linear-gradient(to left, transparent, black 20% 80%, transparent);
+  mask-size: 100% 200%;
+}
+
+@keyframes move-tape {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.shop-logo-card {
+  cursor: pointer;
+  filter: grayscale(1);
+  transition:
+    transform 300ms ease,
+    filter 300ms ease;
+}
+
+.shop-logo-card:hover {
+  filter: grayscale(0);
+  transform: translateY(-2rem);
+}
+
+.shoop-tooltip {
+  --bs-tooltip-bg: var(--gp-blue-700);
+  --bs-tooltip-color: var(--gp-grey-100);
+}
+
+.full-section {
+  width: 100%;
+  background-color: var(--gp-purple-500);
+}
+
+.full-section__img {
+  --gradient-direction: to bottom;
+  display: block;
+  width: 100%;
+  height: auto;
+  mask-image: linear-gradient(
+    var(--gradient-direction),
+    black 88%,
+    transparent 88% 89%,
+    black 89% 92%,
+    transparent 92% 94%,
+    black 94% 96%,
+    transparent 96% 99%,
+    black 99%
+  );
+}
+
+@media screen and (min-width: 768px) {
+  .full-section__img {
+    --gradient-direction: to right;
+    height: 80vh;
+    object-fit: cover;
+  }
+}

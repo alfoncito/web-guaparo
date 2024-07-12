@@ -10,8 +10,11 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addPassthroughCopy(`${input}/css`);
   eleventyConfig.addPassthroughCopy(`${input}/js`);
   eleventyConfig.addPassthroughCopy({
-    "node_modules/bootstrap/dist/js/bootstrap.min.js": "js/bootstrap.js",
+    "node_modules/bootstrap/dist/js/bootstrap.esm.min.js": "js/bootstrap.js",
   });
+  // eleventyConfig.addPassthroughCopy({
+  //   "node_modules/bootstrap/dist/js/bootstrap.min.js": "js/bootstrap.js",
+  // });
 
   eleventyConfig.addTemplateFormats("scss");
   eleventyConfig.addExtension("scss", {

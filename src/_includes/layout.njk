@@ -1,12 +1,22 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>C.C. Guaparo</title>
-  <link rel="stylesheet" href="/css/bootstrap.css">
-</head>
-<body>
-  {{ content | safe }}
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>C.C. Guaparo</title>
+    <link rel="stylesheet" href="/css/bootstrap.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <script type="importmap">
+      {
+        "imports": {
+          "@popperjs/core": "https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/esm/popper.min.js",
+          "bootstrap": "/js/bootstrap.js"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    {% include "menu.njk" %}
+    <main>{{ content | safe }}</main>
+  </body>
 </html>

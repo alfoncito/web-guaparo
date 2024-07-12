@@ -1,8 +1,135 @@
 ---
 layout: layout.njk
+logosCounts:
+  [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
 ---
 
-{% include "menu.njk" %}
-<h1 class="bg-primary display-3 text-center p-5">Mi sitio web con eleventy</h1>
+<div id="gp-carousel" class="carousel slide">
+  <div class="carousel-indicators">
+    <button
+      type="button"
+      data-bs-target="#gp-carousel"
+      data-bs-slide-to="0"
+      class="active"
+      aria-current="true"
+      aria-label="Slide 1"
+    ></button>
+    <button
+      type="button"
+      data-bs-target="#gp-carousel"
+      data-bs-slide-to="1"
+      aria-label="Slide 2"
+    ></button>
+    <button
+      type="button"
+      data-bs-target="#gp-carousel"
+      data-bs-slide-to="2"
+      aria-label="Slide 3"
+    ></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="/img/cc1.jpg" class="carousel__img" alt="centro comercial" />
+      <div
+        class="carousel__content align-items-center justify-content-center justify-content-md-start px-5"
+      >
+        <h2 class="carousel-title display-1 fw-bold text-center text-md-start">
+          Disfruta de nuestro menú
+        </h2>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="/img/cc2.jpg" class="carousel__img" alt="cnetro comercial" />
+      <div
+        class="carousel__content align-items-center justify-content-center justify-content-md-start px-5"
+      >
+        <h2 class="carousel-title display-1 fw-bold text-center text-md-start">
+          Realiza tus tramites bancarios
+        </h2>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="/img/cc3.jpg" class="carousel__img" alt="centro comercial" />
+      <div
+        class="carousel__content align-items-center justify-content-center justify-content-md-start px-5"
+      >
+        <h2 class="carousel-title display-1 fw-bold text-center text-md-start">
+          Prepara tus viaje con nosotros
+        </h2>
+      </div>
+    </div>
+  </div>
+  <button
+    class="carousel-control-prev"
+    type="button"
+    data-bs-target="#gp-carousel"
+    data-bs-slide="prev"
+  >
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button
+    class="carousel-control-next"
+    type="button"
+    data-bs-target="#gp-carousel"
+    data-bs-slide="next"
+  >
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
 
-<script type="module" src="/js/menu.js"></script>
+<section class="full-section my-5 row g-0 gx-md-5">
+  <div class="col-12 col-md-6 col-lg-8">
+    <img class="full-section__img" src="/img/cc1.jpg" alt="centro comercial" />
+  </div>
+  <div class="col-12 col-md-6 col-lg-4 p-3">
+    <h3 class="h3">C.C Guaparo</h3>
+    <p>
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam,
+      quibusdam quaerat nisi iste ullam facilis natus impedit animi, vel quam
+      similique temporibus distinctio fuga corporis saepe ratione corrupti nulla
+      odio? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi
+      exercitationem facere id, cumque ratione iusto officia nulla laboriosam
+      odio impedit itaque quia consectetur molestiae veritatis non obcaecati.
+      Aspernatur, adipisci facilis.
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam sapiente
+      ipsam praesentium quae, illum amet iste doloremque perferendis dolore
+      itaque distinctio quo, aliquam consequatur consectetur. Placeat cum omnis
+      consequuntur ipsam!
+    </p>
+  </div>
+</section>
+
+<section class="my-5 overflow-hidden">
+  <div class="d-flex justify-content-between align-items-end px-5">
+    <h2 class="h2">Nuestras tiendas</h2>
+    <a href="#">ver directorio -></a>
+  </div>
+  <div class="shops-tape my-3">
+    <div class="shops-tape__mask">
+      <div class="shops-tape__anim d-flex">
+        {% for i in logosCounts %}
+          <article class="shop-logo-card mx-4 my-5">
+            <img src="img/logos/guaparo.jpg" alt="Guaparo" height="80" />
+          </article>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  <div class="shops-tape my-3">
+    <div class="shops-tape__mask">
+      <div class="shops-tape__anim reverse d-flex">
+        {% for i in logosCounts %}
+          <article class="shop-logo-card mx-4 my-5">
+            <img src="img/logos/guaparo.jpg" alt="Guaparo" height="80" />
+          </article>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script type="module" src="/js/index.js"></script>
