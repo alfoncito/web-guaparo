@@ -1,35 +1,9 @@
 import * as bs from "./bootstrap.js";
 
-const breakPoints = {
-  sm: "(min-width: 576px)",
-  md: "(min-width: 768px)",
-  lg: "(min-width: 992px)",
-  xl: "(min-width: 1200px)",
-  xxl: "(min-width: 1400px)",
-};
-
 const main = () => {
-  handleMenu();
   handleCarousel();
   handleShopsTape();
   enableTooltips();
-};
-
-const handleMenu = () => {
-  let $btnMenu = document.getElementById("btn-menu"),
-    $navMenu = document.getElementById("nav-menu"),
-    collapseMenu = new bs.Collapse($navMenu, {
-      toggle: false,
-    }),
-    media = matchMedia(breakPoints.md);
-
-  media.onchange = () => {
-    if (media.matches) $navMenu.classList.remove("show");
-  };
-
-  $btnMenu.addEventListener("click", () => {
-    collapseMenu.toggle();
-  });
 };
 
 const handleCarousel = () => {

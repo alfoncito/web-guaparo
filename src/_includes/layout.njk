@@ -19,5 +19,9 @@
   <body>
     {% include "menu.njk" %}
     <main>{{ content | safe }}</main>
+    {% include "footer.njk" %}
+    {% for src in scripts %}
+      <script type="module" src="{{ src }}"></script>
+    {% endfor %}
   </body>
 </html>

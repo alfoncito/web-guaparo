@@ -2,6 +2,7 @@
 layout: layout.njk
 logosCounts:
   [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+scripts: ["/js/index.js", "/js/menu.js"]
 ---
 
 <div id="gp-carousel" class="carousel slide">
@@ -187,7 +188,10 @@ logosCounts:
       <div class="col">
         <article class="card-service d-flex border rounded">
           <div>
-            <i class="bi bi-droplet fs-1 fw-bold mx-3"></i>
+            <span class="fs-1 fw-bold mx-3 d-inline-flex">
+              <i class="bi bi-person-standing"></i>
+              <i class="bi bi-person-standing-dress"></i>
+            </span>
           </div>
           <div>
             <h4 class="h4">Sanitarios</h4>
@@ -273,7 +277,7 @@ logosCounts:
   </div>
 </section>
 
-<section class="row position-relative">
+<section class="section-location row position-relative">
   <div class="col col-12 col-md-7 col-lg-9">
     <img class="img-fluid" src="/img/mapa.jpg" alt="Mapa" />
   </div>
@@ -292,5 +296,3 @@ logosCounts:
     </div>
   </article>
 </section>
-
-<script type="module" src="/js/index.js"></script>
