@@ -12,9 +12,12 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addPassthroughCopy({
     "node_modules/bootstrap/dist/js/bootstrap.esm.min.js": "js/bootstrap.js",
   });
-  // eleventyConfig.addPassthroughCopy({
-  //   "node_modules/bootstrap/dist/js/bootstrap.min.js": "js/bootstrap.js",
-  // });
+  eleventyConfig.addPassthroughCopy({
+    "node_modules/bootstrap-icons/font/bootstrap-icons.min.css": `css/bootstrap-icons.css`,
+  });
+  eleventyConfig.addPassthroughCopy({
+    "node_modules/bootstrap-icons/font/fonts": `css/fonts`,
+  });
 
   eleventyConfig.addTemplateFormats("scss");
   eleventyConfig.addExtension("scss", {

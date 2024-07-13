@@ -130,8 +130,14 @@
   background-color: var(--gp-purple-500);
 }
 
+.bg-section {
+  background-color: var(--gp-purple-800);
+  color: white;
+}
+
 .full-section__img {
   --gradient-direction: to bottom;
+
   display: block;
   width: 100%;
   height: auto;
@@ -153,4 +159,103 @@
     height: 80vh;
     object-fit: cover;
   }
+}
+
+.card-service {
+  background-color: var(--gp-purple-100);
+}
+
+.section-schedule {
+  background-image: linear-gradient(
+    90deg,
+    var(--gp-purple-600) 20%,
+    transparent 20.1%
+  );
+}
+
+.btn-fancy {
+  background-color: var(--gp-blue-600);
+  background-image: linear-gradient(
+    to right,
+    var(--gp-blue-600),
+    var(--gp-purple-700)
+  );
+  background-size: 300% 100%;
+  cursor: pointer;
+  padding: 0.75em;
+  border-radius: var(--bs-border-radius);
+  text-decoration: none;
+  font-weight: bold;
+  color: var(--bs-white);
+  transition: background-position 0.8s ease;
+  color: var(--gp-blue-100);
+  display: inline-flex;
+  align-items: center;
+  box-shadow: 10px 10px 0 0 #0004;
+}
+
+.btn-fancy:hover {
+  background-position: right;
+}
+
+.btn-fancy__icon {
+  display: block;
+  font-size: 2em;
+  transition: transform 500ms ease;
+  text-align: center;
+  margin-left: 0.25em;
+  margin-right: 1em;
+}
+
+.btn-fancy:hover .btn-fancy__icon {
+  transform: translateX(1em);
+}
+
+.location {
+  --bg-direction: to top;
+
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: max-content;
+  filter: drop-shadow(10px 10px 0 #0004);
+}
+
+.location__body {
+  padding: 2rem;
+  padding-top: 6rem;
+  background-image: linear-gradient(
+    var(--bg-direction),
+    var(--gp-blue-500),
+    var(--gp-purple-500)
+  );
+  clip-path: polygon(0 5rem, 50% 0, 100% 5rem, 100% 100%, 0 100%);
+}
+
+@media screen and (min-width: 768px) {
+  .location {
+    --bg-direction: to left;
+
+    left: initial;
+    top: 50%;
+    right: 0%;
+    transform: translateY(-50%);
+  }
+
+  .location__body {
+    padding: 2rem;
+    padding-left: 6rem;
+    clip-path: polygon(5rem 0, 0 50%, 5rem 100%, 100% 100%, 100% 0);
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .location {
+    right: 5%;
+  }
+}
+
+.drop-shadow {
+  filter: drop-shadow(10px 10px 0 var(--gp-grey-500));
 }
