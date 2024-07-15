@@ -283,8 +283,13 @@
   }
 }
 
-.drop-shadow {
-  filter: drop-shadow(10px 10px 0 var(--gp-grey-500));
+.header-section {
+  height: 30vh;
+  background-image: linear-gradient(
+    to left,
+    var(--gp-purple-600),
+    var(--gp-blue-600)
+  );
 }
 
 .footer {
@@ -292,8 +297,24 @@
   color: var(--bs-white);
 }
 
+.menu-logo {
+  height: 40px;
+  width: auto;
+}
+
 .logo {
   display: block;
-  height: 70px;
-  width: auto;
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+}
+
+.form-check-input,
+.form-check-label {
+  cursor: pointer;
+}
+
+.form-filter-shops {
+  position: sticky;
+  top: 5rem;
 }

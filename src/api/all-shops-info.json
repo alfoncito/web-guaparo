@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Fuji",
+    "logo": "/img/logos/fuji.png",
+    "images": [],
+    "category": "ropa"
+  },
+  {
+    "name": "Dominos",
+    "logo": "/img/logos/domino.png",
+    "images": [],
+    "category": "comida"
+  },
+  {
+    "name": "Computepuy",
+    "logo": "/img/logos/computepuy.png",
+    "images": [],
+    "category": "comida"
+  },
+  {
+    "name": "CRE",
+    "logo": "/img/logos/cre.png",
+    "images": [],
+    "category": "medicina"
+  },
+  {
+    "name": "DHL",
+    "logo": "/img/logos/dhl.png",
+    "images": [],
+    "category": "Envios"
+  },
+  {
+    "name": "DiAnselmo",
+    "logo": "/img/logos/dianselmo.png",
+    "images": [],
+    "category": "comida"
+  },
+  {
+    "name": "Sermintra",
+    "logo": "/img/logos/sermintra.png",
+    "images": [],
+    "category": "medicina"
+  },
+  {
+    "name": "Strong & fitness",
+    "logo": "/img/logos/strong-and-fitness.png",
+    "images": [],
+    "category": "deporte"
+  }
+]

@@ -1,6 +1,7 @@
 const EleventyHtmlBasePlugin = require("@11ty/eleventy").EleventyHtmlBasePlugin;
 const sass = require("sass");
 const path = require("path");
+const fsp = require("fs/promises");
 
 /** @param {import("@11ty/eleventy").UserConfig} eleventyConfig */
 module.exports = (eleventyConfig) => {
@@ -40,6 +41,8 @@ module.exports = (eleventyConfig) => {
 
   eleventyConfig.addPlugin(EleventyHtmlBasePlugin);
 
+  eleventyConfig.on("eleventy.after", shopsInfoJsonSlice);
+
   eleventyConfig.setServerOptions({
     showVersion: true,
     port: 4321,
@@ -52,4 +55,17 @@ module.exports = (eleventyConfig) => {
       output: "dist",
     },
   };
+};
+
+const shopsInfoJsonSlice = async ({ dir }) => {
+  let input = `${dir.input}/api/all-shops-info.json`,
+    output = `${dir.output}/api/all-shops-info.json`,
+    stat = await fsp.stat(input),
+    timeS = (Date.now() - stat.mtimeMs) / 1000;
+
+  if (timeS < 60) {
+    let json = await fsp.readFile(input, { encoding: "utf-8" });
+
+    await fsp.writeFile(output, json, { encoding: "utf-8" });
+  }
 };

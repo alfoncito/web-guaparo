@@ -20,8 +20,8 @@
     {% include "menu.njk" %}
     <main>{{ content | safe }}</main>
     {% include "footer.njk" %}
-    {% for src in scripts %}
-      <script type="module" src="{{ src }}"></script>
-    {% endfor %}
+
+    <script type="module" src="/js/menu.js"></script>
+    <script type="module" src="{{ script }}"></script>
   </body>
 </html>
