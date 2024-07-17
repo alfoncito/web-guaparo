@@ -64,8 +64,40 @@ const shopsInfoJsonSlice = async ({ dir }) => {
     timeS = (Date.now() - stat.mtimeMs) / 1000;
 
   if (timeS < 60) {
-    let json = await fsp.readFile(input, { encoding: "utf-8" });
+    let json = await fsp.readFile(input, { encoding: "utf-8" }),
+      shops = JSON.parse(json),
+      allShopsDataShort = [];
 
-    await fsp.writeFile(output, json, { encoding: "utf-8" });
+    await fsp.mkdir(`${dir.output}/api`, { recursive: true });
+
+    for (let shop of shops) {
+      let shortShopData;
+
+      shop.apiPath = `/api/${slug(shop.name)}.json`;
+      shortShopData = cutShop(shop);
+      allShopsDataShort.push(shortShopData);
+      await fsp.writeFile(
+        `${dir.output}${shop.apiPath}`,
+        JSON.stringify(shop),
+        { encoding: "utf-8" },
+      );
+    }
+
+    await fsp.writeFile(output, JSON.stringify(allShopsDataShort), {
+      encoding: "utf-8",
+    });
   }
+};
+
+const slug = (text) => {
+  return text.trim().toLowerCase().replace(/ /g, "-");
+};
+
+const cutShop = (shop) => {
+  return {
+    name: shop.name,
+    logo: shop.logo,
+    apiPath: shop.apiPath,
+    category: shop.category,
+  };
 };
