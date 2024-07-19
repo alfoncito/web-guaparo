@@ -1,4 +1,5 @@
 import * as bs from "./bootstrap.js";
+import breakpoint from "./breakpoint.js";
 
 const API_SHOPS = "/api/all-shops-info.json";
 
@@ -8,6 +9,7 @@ const main = () => {
   loadShopsCard();
   handleFilter();
   handleClickShopCard();
+  handleFilterCollapse();
 };
 
 const loadShopsCard = () => {
@@ -280,6 +282,37 @@ const handleFilter = () => {
     });
     renderShops(shops);
   });
+};
+
+const handleFilterCollapse = () => {
+  let $collapse = document.getElementById("form-collapse"),
+    $btnFilter = document.getElementById("btn-filter"),
+    collapse = new bs.Collapse($collapse, {
+      toggle: false,
+    }),
+    isExpanded = false,
+    media = matchMedia(breakpoint.md);
+
+  $btnFilter.addEventListener("click", () => {
+    collapse.toggle();
+    isExpanded = !isExpanded;
+    $btnFilter.setAttribute("aria-expanded", isExpanded);
+  });
+
+  const expandCollapseIfLarge = () => {
+    if (media.matches) {
+      $collapse.classList.add("show");
+      isExpanded = true;
+    } else {
+      $collapse.classList.remove("show");
+      isExpanded = false;
+    }
+    $btnFilter.setAttribute("aria-expanded", isExpanded);
+  };
+
+  media.addEventListener("change", expandCollapseIfLarge);
+
+  expandCollapseIfLarge();
 };
 
 document.addEventListener("DOMContentLoaded", main);

@@ -60,33 +60,26 @@ module.exports = (eleventyConfig) => {
 const shopsInfoJsonSlice = async ({ dir }) => {
   let input = `${dir.input}/api/all-shops-info.json`,
     output = `${dir.output}/api/all-shops-info.json`,
-    stat = await fsp.stat(input),
-    timeS = (Date.now() - stat.mtimeMs) / 1000;
+    json = await fsp.readFile(input, { encoding: "utf-8" }),
+    shops = JSON.parse(json),
+    allShopsDataShort = [];
 
-  if (timeS < 60) {
-    let json = await fsp.readFile(input, { encoding: "utf-8" }),
-      shops = JSON.parse(json),
-      allShopsDataShort = [];
+  await fsp.mkdir(`${dir.output}/api`, { recursive: true });
 
-    await fsp.mkdir(`${dir.output}/api`, { recursive: true });
+  for (let shop of shops) {
+    let shortShopData;
 
-    for (let shop of shops) {
-      let shortShopData;
-
-      shop.apiPath = `/api/${slug(shop.name)}.json`;
-      shortShopData = cutShop(shop);
-      allShopsDataShort.push(shortShopData);
-      await fsp.writeFile(
-        `${dir.output}${shop.apiPath}`,
-        JSON.stringify(shop),
-        { encoding: "utf-8" },
-      );
-    }
-
-    await fsp.writeFile(output, JSON.stringify(allShopsDataShort), {
+    shop.apiPath = `/api/${slug(shop.name)}.json`;
+    shortShopData = cutShop(shop);
+    allShopsDataShort.push(shortShopData);
+    await fsp.writeFile(`${dir.output}${shop.apiPath}`, JSON.stringify(shop), {
       encoding: "utf-8",
     });
   }
+
+  await fsp.writeFile(output, JSON.stringify(allShopsDataShort), {
+    encoding: "utf-8",
+  });
 };
 
 const slug = (text) => {

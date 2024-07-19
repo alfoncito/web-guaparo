@@ -1,0 +1,84 @@
+---
+layout: "layout.njk"
+sectionTitle: "Contacto"
+script: /js/contact.js
+permalink: "/contacto/"
+---
+
+{% include "header-section.njk" %}
+
+<section class="full-section position-relative">
+  <div class="row">
+    <div class="col-12 col-md-6">
+      <img class="img-fluid" src="/img/tienda.jpg" alt="Contacto" />
+    </div>
+    <div
+      class="col-12 col-md-6 d-flex justify-content-center align-items-center position-absolute position-md-static"
+    >
+      <form
+        class="contact-form p-3 rounded"
+        acction="#"
+        id="contact-form"
+        method="POST"
+        novalidate
+      >
+        <p class="text-center">
+          Si tienes cualquier consulta o duda, no dudes en escribirnos.
+        </p>
+        <div class="form-floating mb-3">
+          <input
+            class="form-control"
+            id="contact-name"
+            type="text"
+            name="name"
+            placeholder="Nombre y apellido"
+            required
+            autofocus="true"
+          />
+          <label for="contact-name">Nombre y apellido</label>
+          <div class="invalid-feedback">El nombre y apellido es requerido</div>
+        </div>
+        <div class="form-floating mb-3">
+          <input
+            class="form-control"
+            type="email"
+            name="mail"
+            id="contact-mail"
+            placeholder="Correo electrónico"
+            required
+          />
+          <label for="contact-mail">Correo electrónico</label>
+          <div class="invalid-feedback">Escribe tu correo electrónico</div>
+        </div>
+        <div class="form-floating mb-3">
+          <input
+            class="form-control"
+            type="text"
+            name="subject"
+            id="contac-subject"
+            placeholder="Asunto"
+            required
+          />
+          <label for="contact-subject">Asunto</label>
+          <div class="invalid-feedback">¿Cual es el asunto?</div>
+        </div>
+        <div class="form-floating mb-3">
+          <textarea
+            class="contact-form__textarea form-control"
+            name="message"
+            id="contact-message"
+            placeholder="message"
+            required
+          ></textarea>
+          <label for="contact-message">Mensage</label>
+          <div class="invalid-feedback">Escribenos tu pregunta o consulta</div>
+        </div>
+        <div class="text-end">
+          <button class="btn btn-outline-primary ms-auto" type="submit">
+            Enviar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
