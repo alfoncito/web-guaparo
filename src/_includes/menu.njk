@@ -1,14 +1,29 @@
-<div class="container-fluid fixed-top">
-  <nav
-    class="navbar opacity navbar-expand-md bg-body-tertiary d-flex justify-content-between px-4"
-    id="menu"
-  >
-    <a class="navbar-brand" href="/">
+{% macro linkMenu(href, textContent, page) %}
+  {% if page === currentPage %}
+    <li class="nav-item">
+      <a class="nav-link active p-3" href="{{ href }}" aria-current="page">
+        {{ textContent }}
+      </a>
+    </li>
+  {% else %}
+    <li class="nav-item">
+      <a class="nav-link p-3" href="{{ href }}">{{ textContent }}</a>
+    </li>
+  {% endif %}
+{% endmacro %}
+
+<nav
+  class="navbar bg-dark opacity navbar-expand-md d-flex justify-content-between p-0 fixed-top"
+  id="menu"
+  data-bs-theme="dark"
+>
+  <div class="container">
+    <a class="navbar-brand p-0" href="/">
       <img class="menu-logo" src="/img/logos/guaparo.jpg" alt="Bootstrap" />
     </a>
-    <button
+    {# <button
       id="btn-menu"
-      class="navbar-toggler"
+      class="navbar-toggler m-2"
       type="button"
       data-bs-toggle="collapse"
       data-bs-target="#nav-menu"
@@ -17,22 +32,30 @@
       aria-label="Toggle navigation"
     >
       <span class="navbar-toggler-icon"></span>
+    </button> #}
+    <button
+      id="btn-menu"
+      class="navbar-toggler m-2 border-0"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#nav-menu"
+      aria-controls="nav-menu"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="hamburger">
+        <span class="hamburger-bar bar-1"></span>
+        <span class="hamburger-bar bar-2"></span>
+        <span class="hamburger-bar bar-3"></span>
+      </span>
     </button>
     <div class="collapse navbar-collapse" id="nav-menu">
       <ul class="navbar-nav ms-auto">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/">Inicio</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Nosotros</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/directorio">Directorio</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/contacto">Contacto</a>
-        </li>
+        {{ linkMenu("/", "Inicio", "home") }}
+        {{ linkMenu("/nosotros", "Nosotros", "about") }}
+        {{ linkMenu("/directorio", "Directorio", "directory") }}
+        {{ linkMenu("/contacto", "Contacto", "contact") }}
       </ul>
     </div>
-  </nav>
-</div>
+  </div>
+</nav>

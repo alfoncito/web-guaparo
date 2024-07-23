@@ -9,7 +9,7 @@
   --gp-purple-700: #7357aa;
   --gp-purple-800: #60498e;
   --gp-purple-900: #503d75;
-  --gp-purple-900: #33274e;
+  --gp-purple-950: #33274e;
   --gp-blue-50: #f1f9fe;
   --gp-blue-100: #e1f3fd;
   --gp-blue-200: #bde6fa;
@@ -45,58 +45,177 @@
   --gp-grey-950: #1a1b18;
 }
 
-.navbar {
-  --nav-opacity: 1;
+:root {
+  --bs-dark-rgb: 42, 43, 40;
+  --bs-black-rgb: 42, 43, 40;
+  --bs-body-bg-rgb: 205, 200, 234;
+  --bs-body-color-rgb: 80, 61, 117;
+  --bs-primary-rgb: 11, 133, 190;
+}
 
-  background-color: hsla(80, 4%, 16%, var(--nav-opacity)) !important;
+.navbar {
   transition: background-color 500ms ease;
 }
 
 .navbar.opacity {
-  --nav-opacity: 0.2;
+  --bs-bg-opacity: 0.2;
+}
+
+.navbar-toggler {
+  --bs-navbar-toggler-focus-width: 0;
 }
 
 .nav-link {
-  color: var(--bs-white) !important;
+  --bg-link-transform: translate(-100%, 0);
+
+  position: relative;
+  font-weight: bold;
+  overflow: hidden;
 }
 
-.carousel {
+.nav-link:hover,
+.nav-link.active {
+  color: var(--gp-grey-900) !important;
+}
+
+.nav-link:before {
+  content: "";
+  display: block;
+  position: absolute;
   width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: calc(var(--bs-bg-opacity));
+  z-index: -1;
+  transform: var(--bg-link-transform);
+  background-color: var(--gp-blue-500);
+  transition:
+    transform 200ms ease-out,
+    opacity 500ms ease;
 }
 
-.carousel-item {
+@media screen and (min-width: 768px) {
+  .nav-link {
+    --bg-link-transform: translate(0, 100%);
+  }
+}
+
+.nav-link:hover::before,
+.nav-link.active::before {
+  transform: translateY(0);
+}
+
+.hamburger {
+  width: 30px;
+  height: 30px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  opacity: var(--bs-bg-opacity);
+}
+
+.hamburger-bar {
+  width: 80%;
+  height: 5%;
+  background-color: var(--bs-white);
+  transition:
+    translate 300ms 300ms ease,
+    rotate 300ms ease,
+    scale 300ms 400ms ease,
+    opacity 300ms 300ms ease;
+}
+
+.hamburger.active > .hamburger-bar {
+  transition:
+    translate 300ms ease,
+    rotate 300ms 300ms ease,
+    scale 300ms 100ms ease,
+    opacity 300ms ease;
+}
+
+.hamburger.active > .bar-1 {
+  translate: 0 8px;
+  rotate: 45deg;
+}
+
+.hamburger.active > .bar-2 {
+  scale: 0.5;
+  opacity: 0;
+}
+
+.hamburger.active > .bar-3 {
+  translate: 0 -8px;
+  rotate: 135deg;
+}
+
+.main-carousel__item {
   width: 100%;
   height: 70vh;
 }
 
-.carousel__img {
+.main-carousel__img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.carousel__content {
+.main-carousel__body {
   position: absolute;
   top: 0;
   left: 0;
   display: flex;
   width: 100%;
   height: 100%;
-  color: #bde6fa;
-  background-image: linear-gradient(to right, #60498e, transparent);
+  background-image: linear-gradient(
+    to right,
+    var(--gp-purple-900),
+    transparent
+  );
 }
 
-.carousel-title {
-  width: 80%;
+.main-carousel__title {
+  color: var(--gp-purple-100);
+  width: 75%;
+}
+
+.carousel-indicators.ball > button {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  margin: 0 0.25rem;
+  border: 2px solid var(--bs-white);
+  background-color: transparent;
+  position: relative;
+}
+
+.carousel-indicators.ball > button::before {
+  content: "";
+  display: block;
+  position: absolute;
+  border-radius: 50%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--bs-white);
+  transform-origin: center center;
+  transform: scale(0);
+  transition: transform 300ms ease-out;
+}
+
+.carousel-indicators.ball > button.active::before {
+  transform: scale(0.8);
 }
 
 .shops-tape {
-  background-color: var(--gp-grey-100);
 }
 
 .shops-tape__anim {
-  animation: move-tape 7s linear infinite normal;
+  animation: move-tape 15s linear infinite normal;
 }
 
 .shops-tape__anim.reverse {
@@ -110,6 +229,7 @@
 .shops-tape__mask {
   mask-image: linear-gradient(to left, transparent, black 20% 80%, transparent);
   mask-size: 100% 200%;
+  padding: 1.5rem 0;
 }
 
 @keyframes move-tape {
@@ -118,26 +238,30 @@
   }
 
   to {
-    transform: translateX(-50%);
+    transform: translateX(calc(var(--translate-x) * -1));
   }
 }
 
 .shop-logo-card {
   cursor: pointer;
   filter: grayscale(1);
+  opacity: 0.6;
   transition:
     transform 300ms ease,
     filter 300ms ease;
 }
 
 .shop-logo-card:hover {
+  opacity: 1;
   filter: grayscale(0);
   transform: translateY(-2rem);
 }
 
-.shoop-tooltip {
-  --bs-tooltip-bg: var(--gp-blue-700);
-  --bs-tooltip-color: var(--gp-grey-100);
+.shop-tooltip {
+  --bs-tooltip-bg: var(--gp-grey-900);
+  --bs-tooltip-color: var(--bs-white);
+
+  font-size: calc(1.275rem + 0.3vw);
 }
 
 .full-section {
@@ -145,11 +269,7 @@
   min-height: 100vh;
   display: grid;
   place-items: center;
-}
-
-.bg-section {
-  background-color: var(--gp-purple-800);
-  color: white;
+  padding: 2rem 0;
 }
 
 .full-section__img {
@@ -179,15 +299,24 @@
 }
 
 .card-service {
-  background-color: var(--gp-purple-100);
+  background-color: var(--gp-purple-200);
+  display: flex;
+  border-left: 5px solid var(--gp-purple-600);
+  padding: 1rem;
+  height: 100%;
 }
 
 .section-schedule {
   background-image: linear-gradient(
     90deg,
-    var(--gp-purple-600) 20%,
+    var(--gp-purple-400) 20%,
     transparent 20.1%
   );
+}
+
+.list-group-item {
+  --bs-list-group-bg: transparent;
+  --bs-list-group-border-color: var(--gp-purple-700);
 }
 
 .btn-fancy {
@@ -199,7 +328,7 @@
   );
   background-size: 300% 100%;
   cursor: pointer;
-  padding: 0.75em;
+  padding: 0 1em;
   border-radius: var(--bs-border-radius);
   text-decoration: none;
   font-weight: bold;
@@ -229,10 +358,10 @@
 }
 
 .section-location {
-  margin-bottom: 20rem;
+  margin-bottom: 5rem;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 992px) {
   .section-location {
     margin-bottom: 0;
   }
@@ -257,13 +386,14 @@
   clip-path: polygon(0 5rem, 50% 0, 100% 5rem, 100% 100%, 0 100%);
 }
 
+/*
 @media screen and (min-width: 768px) {
   .location {
     --bg-direction: to left;
 
     left: initial;
     top: 50%;
-    right: 0%;
+    right: 1rem;
     transform: translateY(-50%);
   }
 
@@ -273,10 +403,26 @@
     clip-path: polygon(5rem 0, 0 50%, 5rem 100%, 100% 100%, 100% 0);
   }
 }
+*/
 
 @media screen and (min-width: 992px) {
   .location {
     right: 5%;
+  }
+
+  .location {
+    --bg-direction: to left;
+
+    left: initial;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+  }
+
+  .location__body {
+    padding: 2rem;
+    padding-left: 6rem;
+    clip-path: polygon(5rem 0, 0 50%, 5rem 100%, 100% 100%, 100% 0);
   }
 }
 
@@ -356,22 +502,21 @@
   }
 }
 
-/* HTML: <div class="loader"></div> */
 .loader {
   width: 50px;
   aspect-ratio: 1;
-  display:grid;
-  -webkit-mask: conic-gradient(from 15deg,#0000,#000);
+  display: grid;
+  -webkit-mask: conic-gradient(from 15deg, #0000, #000);
   animation: l26 1s infinite steps(12);
 }
 .loader,
 .loader:before,
-.loader:after{
+.loader:after {
   background:
-    radial-gradient(closest-side at 50% 12.5%,
-     #f03355 96%,#0000) 50% 0/20% 80% repeat-y,
-    radial-gradient(closest-side at 12.5% 50%,
-     #f03355 96%,#0000) 0 50%/80% 20% repeat-x;
+    radial-gradient(closest-side at 50% 12.5%, #f03355 96%, #0000) 50% 0/20% 80%
+      repeat-y,
+    radial-gradient(closest-side at 12.5% 50%, #f03355 96%, #0000) 0 50%/80% 20%
+      repeat-x;
 }
 .loader:before,
 .loader:after {
@@ -384,5 +529,35 @@
 }
 
 @keyframes l26 {
-  100% {transform:rotate(1turn)}
+  100% {
+    transform: rotate(1turn);
+  }
+}
+
+.section-bg-img {
+  background-image: url(/img/tienda.jpg);
+  background-size: 100% 100%;
+}
+
+.section-bg-filter {
+  width: 100%;
+  height: 100%;
+  backdrop-filter: brightness(0.5) blur(3px);
+}
+
+.card-md {
+  max-width: 350px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.gp-link-primary {
+  color: var(--gp-purple-700);
+  font-weight: bold;
+  opacity: 0.8;
+  transition: opacity 300ms ease;
+}
+
+.gp-link-primary:hover {
+  opacity: 1;
 }

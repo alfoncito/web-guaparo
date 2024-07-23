@@ -5,6 +5,7 @@ const handleMenu = () => {
   let $menu = document.getElementById("menu"),
     $btnMenu = document.getElementById("btn-menu"),
     $navMenu = document.getElementById("nav-menu"),
+    $hamburger = $btnMenu.querySelector(".hamburger"),
     collapseMenu = new bs.Collapse($navMenu, {
       toggle: false,
     }),
@@ -13,11 +14,15 @@ const handleMenu = () => {
   const MIN_SCROLL_NAV_VISIBLE = 200;
 
   media.onchange = () => {
-    if (media.matches) $navMenu.classList.remove("show");
+    if (media.matches) {
+      $navMenu.classList.remove("show");
+      $hamburger.classList.remove("active");
+    }
   };
 
   $btnMenu.addEventListener("click", () => {
     collapseMenu.toggle();
+    $hamburger.classList.toggle("active");
   });
 
   window.addEventListener("scroll", () => {

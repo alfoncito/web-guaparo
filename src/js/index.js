@@ -2,7 +2,6 @@ import * as bs from "./bootstrap.js";
 
 const main = () => {
   handleCarousel();
-  handleShopsTape();
   enableTooltips();
 };
 
@@ -19,12 +18,13 @@ const handleCarousel = () => {
 };
 
 const handleShopsTape = () => {
-  let tapes = document.querySelectorAll(".shops-tape");
+  let tapes = document.querySelectorAll(".shops-tape__anim");
 
-  tapes.forEach((tape) => {
-    tape.addEventListener("mousemove", (e) => {
-      // console.log("Moviendo");
-    });
+  tapes.forEach(($tape) => {
+    // let translateX = $tape.scrollWidth / 2 + getScrollBarWidth();
+    let translateX = $tape.scrollWidth / 2 + 12;
+    
+    $tape.setAttribute("style", `--translate-x: ${translateX}px`);
   });
 };
 
@@ -35,11 +35,16 @@ const enableTooltips = () => {
     new bs.Tooltip(tg, {
       title: "Nombre tienda",
       placement: "bottom",
-      customClass: "shoop-tooltip",
+      customClass: "shop-tooltip",
       offset: [0, 20],
       delay: 200,
     });
   });
 };
 
+const getScrollBarWidth = () => {
+  return window.innerWidth - document.documentElement.getBoundingClientRect().width
+};
+
 document.addEventListener("DOMContentLoaded", main);
+window.addEventListener("load", () => handleShopsTape());
