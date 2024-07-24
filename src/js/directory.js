@@ -9,10 +9,13 @@ const main = () => {
   loadShopsCard();
   handleFilter();
   handleClickShopCard();
-  handleFilterCollapse();
 };
 
 const loadShopsCard = () => {
+  let $shopsTarget = document.getElementById("shops-card-target"),
+    $loader = createLoaderElement();
+
+  $shopsTarget.insertAdjacentElement("afterbegin", $loader);
   fetch(API_SHOPS)
     .then((res) => res.json())
     .then((shopsResult) => {
@@ -45,9 +48,13 @@ const setupModal = () => {
     _shop;
 
   $shopModal.addEventListener("show.bs.modal", () => {
+    let $loader = createLoaderElement();
+
+    $modalBody.appendChild($loader);
     fetch(_shop.apiPath)
       .then((res) => res.json())
       .then((fullInfoShop) => {
+	$loader.remove();
         $modalHeader.insertAdjacentHTML(
           "afterbegin",
           createModalHeaderHTMLContent(fullInfoShop),
@@ -74,7 +81,7 @@ const setupModal = () => {
 const createModalHeaderHTMLContent = (shop) => {
   return `
     <img class="menu-logo d-lg-none" src="${shop.logo}" alt="${shop.name}" />
-    <h4 class="px-3 d-lg-none">${shop.name}</h4>
+    <h4 class="fs-2 px-3 d-lg-none text-primary">${shop.name}</h4>
     <button
         class="btn-close"
         type="button"
@@ -87,21 +94,21 @@ const createModalHeaderHTMLContent = (shop) => {
 const createModalBodyHTMLContent = (shop) => {
   return `
     <div class="row g-0">
-      <div class="col p-3 d-none d-lg-block col-lg-3">
+      <div class="col p-3 d-none d-lg-block col-lg-4">
         <div class="sticky-top">
           <img class="large-logo d-block mx-auto" src="${shop.logo}" alt="${shop.name}" />
-          <p>Local ${shop.local}</p>
+          <p class="fs-6 opacity-75">Local ${shop.local}</p>
           ${createModalContactHTML(shop)}
           ${createModalSocialMediaHTML(shop)}
-          </div>
-          </div>
-          <div class="col col-lg-9">
-          ${createModalCarouselElement(shop)}
-          <div class="p-3">
-          <h4 class="d-none d-lg-block">${shop.name}</h4>
+        </div>
+      </div>
+      <div class="col col-lg-8">
+        ${createModalCarouselElement(shop)}
+        <div class="p-3">
+          <h4 class="d-none d-lg-block fs-2 text-primary">${shop.name}</h4>
           <div class="d-flex justify-content-between d-lg-none">
-          <p>Local ${shop.local ?? "No se"}</p>
-          ${createModalSocialMediaHTML(shop)}
+            <p class="fs-6 opacity-75">Local ${shop.local ?? "Por ahi anda."}</p>
+            ${createModalSocialMediaHTML(shop)}
           </div>
           <p>${shop.description ?? "Descripción no disponible"}</p>
           ${createModalContactHTML(shop, "d-lg-none")}
@@ -124,7 +131,12 @@ const createModalSocialMediaHTML = (shop) => {
 
   for (let [socialMedia, link] of Object.entries(shop.socialMedia)) {
     socialMediaHTML += `
-      <a class="text-decoration-none" href="${link}" rel="nofollow" target="_blank">
+      <a 
+	class="gp-link-primary fs-4 d-inline-block mx-1 text-decoration-none" 
+	href="${link}" 
+	rel="nofollow" 
+	target="_blank"
+      >
         <i class="bi bi-${socialMediaClass[socialMedia]}"></i>
       </a>
     `;
@@ -144,13 +156,29 @@ const createModalCarouselElement = (shop) => {
       <div class="carousel-inner">
         ${createModalCaruselItemsHTML(shop.images)}
       </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#${$modalCarousel.id}" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previus</span>
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#${$modalCarousel.id}"
+        data-bs-slide="prev"
+      >
+        <i
+          class="bi bi-arrow-left-circle-fill fs-3 opacity-50"
+          aria-hidden="true"
+        ></i>
+        <span class="visually-hidden">Anterior</span>
       </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#${$modalCarousel.id}" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#${$modalCarousel.id}"
+        data-bs-slide="next"
+      >
+        <i
+          class="bi bi-arrow-right-circle-fill fs-3 opacity-50"
+          aria-hidden="true"
+        ></i>
+        <span class="visually-hidden">Siguiente</span>
       </button>
     `,
   );
@@ -178,15 +206,15 @@ const createModalContactHTML = (shop, customClass = "") => {
   if (!shop.contact) return "";
 
   if (shop.contact.phone)
-    contact += `<p><i class="bi bi-telephone"></i> ${shop.contact.phone}</p>`;
+    contact += `<p class="my-1"><i class="bi bi-telephone"></i> ${shop.contact.phone}</p>`;
   if (shop.contact.mail)
-    contact += `<p><i class="bi bi-envelope-at"></i> ${shop.contact.mail}</p>`;
+    contact += `<p class="my-1"><i class="bi bi-envelope-at"></i> ${shop.contact.mail}</p>`;
 
   if (contact === "") return "";
 
   return `
-    <div class="${customClass}">
-      <h5>Contacto</h5>
+    <div class="${customClass} mb-3">
+      <h5 class="h5 text-primary mb-2">Contacto</h5>
       ${contact}
     </div>
   `;
@@ -216,15 +244,23 @@ const renderShops = (shops) => {
 const createCardsContainer = () => {
   let $container = document.createElement("div");
 
-  $container.classList.add("row", "row-cols-3");
+  $container.classList.add("row", "row-cols-2", "row-cols-lg-3", "row-cols-xl-4", "mb-4");
   return $container;
 };
 
 const createCategoryTitle = (title) => {
-  let $title = document.createElement("h2");
+  let $title = document.createElement("h3"),
+    $hr = document.createElement("hr"),
+    $frag = document.createDocumentFragment();
 
+  $title.classList.add("fs-5", "text-body", "opacity-75", "my-0");
   $title.textContent = title.toUpperCase();
-  return $title;
+
+  $hr.classList.add("mt-1");
+
+  $frag.appendChild($title);
+  $frag.appendChild($hr);
+  return $frag;
 };
 
 const createShopCard = (shop) => {
@@ -235,10 +271,10 @@ const createShopCard = (shop) => {
   $card.insertAdjacentHTML(
     "afterbegin",
     `
-    <div class="card my-3">
+    <div class="card-shop card my-3 p-2">
       <img src="${shop.logo}" class="card-img-top logo mx-auto" alt="${shop.name}">
-      <div class="card-body">
-        <h5 class="card-title text-center">${shop.name.toUpperCase()}</h5>
+      <div class="card-body p-1">
+        <h5 class="card-title text-center m-0 fs-6 fw-light">${shop.name.toUpperCase()}</h5>
       </div>
     </div>
   `,
@@ -255,7 +291,14 @@ const sortShops = (shops) => {
 const handleFilter = () => {
   let checksFilter = document.querySelectorAll(".js-check-filter"),
     $btnAppplyFilter = document.getElementById("btn-apply-filter"),
-    $btnShowAll = document.getElementById("btn-show-all");
+    $btnShowAll = document.getElementById("btn-show-all"),
+    $collapse = document.getElementById("form-collapse"),
+    $btnFilter = document.getElementById("btn-filter"),
+    collapse = new bs.Collapse($collapse, {
+      toggle: false
+    }),
+    isExpanded = false,
+    media = matchMedia(breakpoint.md);
 
   $btnAppplyFilter.addEventListener("click", () => {
     let filters = [],
@@ -274,6 +317,7 @@ const handleFilter = () => {
 
       renderShops(shopsFiltered);
     }
+    hideCollapseIfSmall();
   });
 
   $btnShowAll.addEventListener("click", () => {
@@ -281,17 +325,8 @@ const handleFilter = () => {
       cf.checked = false;
     });
     renderShops(shops);
+    hideCollapseIfSmall();
   });
-};
-
-const handleFilterCollapse = () => {
-  let $collapse = document.getElementById("form-collapse"),
-    $btnFilter = document.getElementById("btn-filter"),
-    collapse = new bs.Collapse($collapse, {
-      toggle: false,
-    }),
-    isExpanded = false,
-    media = matchMedia(breakpoint.md);
 
   $btnFilter.addEventListener("click", () => {
     collapse.toggle();
@@ -310,9 +345,23 @@ const handleFilterCollapse = () => {
     $btnFilter.setAttribute("aria-expanded", isExpanded);
   };
 
-  media.addEventListener("change", expandCollapseIfLarge);
+  const hideCollapseIfSmall = () => {
+    if (!media.matches) {
+      collapse.hide();
+      isExpanded = false;
+      $btnFilter.setAttribute("aria-expanded", isExpanded);
+    }
+  };
 
+  media.addEventListener("change", expandCollapseIfLarge);
   expandCollapseIfLarge();
+};
+
+const createLoaderElement = () => {
+  let $loader = document.createElement("div");
+
+  $loader.classList.add("loader", "my-5");
+  return $loader;
 };
 
 document.addEventListener("DOMContentLoaded", main);

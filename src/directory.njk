@@ -11,7 +11,7 @@ currentPage: directory
   <div
     class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg"
   >
-    <div class="modal-content">
+    <div class="shop-modal-content modal-content">
       <header class="modal-header"></header>
       <div class="modal-body p-0"></div>
     </div>
@@ -19,62 +19,63 @@ currentPage: directory
 </section>
 
 {% include "header-section.njk" %}
-
-<section class="row p-5">
+<section class="container row mx-auto p-3">
   <aside class="col-12 col-md-3">
-    <button
-      class="btn d-block d-md-none ms-auto"
-      type="button"
-      id="btn-filter"
-      data-bs-toggle="collapse"
-      data-base-target="#form-collapse"
-      aria-expanded="false"
-      aria-controls="#form-collapse"
-      title="Filtro de busqueda"
-    >
-      <i class="bi bi-filter"></i>
-    </button>
-    <div class="collapse" id="form-collapse">
-      <form class="form-filter-shops">
-        <fieldset>
-          <legend>Filtros</legend>
-          {% for category in categories %}
-            <div class="mb-2 ps-3">
-              <div class="form-check">
-                <input
-                  class="form-check-input js-check-filter"
-                  type="checkbox"
-                  id="check-{{ category }}"
-                  value="{{ category }}"
-                />
-                <label class="form-check-label" for="check-{{ category }}">
-                  {{ category }}
-                </label>
+    <div class="form-filter-shops">
+      <button
+        class="btn d-block d-md-none ms-auto fs-3"
+        type="button"
+        id="btn-filter"
+        data-bs-toggle="collapse"
+        data-base-target="#form-collapse"
+        aria-expanded="false"
+        aria-controls="#form-collapse"
+        title="Filtro de busqueda"
+      >
+        <i class="bi bi-filter"></i>
+      </button>
+      <div class="collapse" id="form-collapse">
+        <form class="mb-3">
+          <fieldset>
+            <legend class="text-primary">Filtros</legend>
+            {% for category in categories %}
+              <div class="mb-2 ps-3">
+                <div class="form-check">
+                  <input
+                    class="form-check-input js-check-filter"
+                    type="checkbox"
+                    id="check-{{ category }}"
+                    value="{{ category }}"
+                  />
+                  <label class="form-check-label" for="check-{{ category }}">
+                    {{ category }}
+                  </label>
+                </div>
+              </div>
+            {% endfor %}
+            <div class="row row-cols-2 row-cols-md-1 g-2 mt-3">
+              <div class="col">
+                <button
+                  type="button"
+                  id="btn-show-all"
+                  class="btn btn-outline-primary w-100"
+                >
+                  Mostrar todos
+                </button>
+              </div>
+              <div class="col">
+                <button
+                  type="button"
+                  id="btn-apply-filter"
+                  class="btn btn-primary w-100"
+                >
+                  Aplicar
+                </button>
               </div>
             </div>
-          {% endfor %}
-          <div class="row row-cols-2 row-cols-md-1 g-2">
-            <div class="col">
-              <button
-                type="button"
-                id="btn-show-all"
-                class="btn btn-outline-primary w-100"
-              >
-                Mostrar todos
-              </button>
-            </div>
-            <div class="col">
-              <button
-                type="button"
-                id="btn-apply-filter"
-                class="btn btn-primary w-100"
-              >
-                Aplicar
-              </button>
-            </div>
-          </div>
-        </fieldset>
-      </form>
+          </fieldset>
+        </form>
+      </div>
     </div>
   </aside>
   <section class="col-12 col-md-9" id="shops-card-target"></section>
