@@ -2,6 +2,7 @@ const EleventyHtmlBasePlugin = require("@11ty/eleventy").EleventyHtmlBasePlugin;
 const sass = require("sass");
 const path = require("path");
 const fsp = require("fs/promises");
+const htmlmin = require("html-minifier-terser");
 
 /** @param {import("@11ty/eleventy").UserConfig} eleventyConfig */
 module.exports = (eleventyConfig) => {
@@ -40,6 +41,8 @@ module.exports = (eleventyConfig) => {
       return () => result.css;
     },
   });
+
+  eleventyConfig.addTransform("htmlmin", minifyHTML);
 
   eleventyConfig.addPlugin(EleventyHtmlBasePlugin);
 
@@ -95,4 +98,24 @@ const cutShop = (shop) => {
     apiPath: shop.apiPath,
     category: shop.category,
   };
+};
+
+const minifyHTML = function (content) {
+  let ext = path.extname(this.page.outputPath);
+
+  if (ext === ".html") {
+    let minified = htmlmin.minify(content, {
+      useShortDoctype: true,
+      removeComments: true,
+      collapseWhitespace: true,
+      collapseBooleanAttributes: true,
+      removeEmptyAttributes: true,
+      removeScriptTypeAttributes: true,
+      removeStyleLinkTypeAttributes: true
+    });
+
+    return minified;
+  }
+
+  return content;
 };
