@@ -5,8 +5,7 @@ const main = () => {
 const handleForm = () => {
   let $form = document.getElementById("contact-form"),
     formInputs = Array.from($form.querySelectorAll(".form-control")).reverse(),
-    $loader = document.getElementById("loader"),
-    $btnSubmitText = document.getElementById("btn-submit-text");
+    $btnSubmit = document.getElementById("btn-submit");
 
   $form.addEventListener("submit", (e) => {
     let isValidForm = true;
@@ -15,14 +14,26 @@ const handleForm = () => {
       isValidForm = isValidForm && $input.checkValidity();
       if (!$input.checkValidity()) invalidInput($input);
     });
-    if (!isValidForm) {
-      e.preventDefault();
-    } else {
-      $loader.classList.remove("d-none");
-      $btnSubmitText.classList.add("d-none");
+    e.preventDefault();
+    if (isValidForm) {
+      let $loader = createLoader();
+
+      
+      $btnSubmit.disabled = true;
+      $form.insertAdjacentElement(
+	"beforeend",
+        $loader
+      );
+      setTimeout(() => {
+	$loader.remove();
+	$btnSubmit.disabled = false;
+        alert("Gracias por su mensage, le contestarmos pronto.");
+	$form.reset();
+      }, 3000);
     }
   });
 };
+
 
 const invalidInput = ($input) => {
   $input.classList.add("is-invalid");
@@ -35,5 +46,12 @@ const invalidInput = ($input) => {
   $input.addEventListener("keypress", handleEvent);
   $input.addEventListener("change", handleEvent);
 };
+
+const createLoader = () => {
+  let $loader = document.createElement("div");
+
+  $loader.classList.add("loader", "mx-auto", "my-3");
+  return $loader;
+}
 
 document.addEventListener("DOMContentLoaded", main);

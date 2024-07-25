@@ -20,6 +20,8 @@ module.exports = (eleventyConfig) => {
     "node_modules/bootstrap-icons/font/fonts": `css/fonts`,
   });
 
+  eleventyConfig.setDataDeepMerge(true);
+
   eleventyConfig.addTemplateFormats("scss");
   eleventyConfig.addExtension("scss", {
     outputFileExtension: "css",

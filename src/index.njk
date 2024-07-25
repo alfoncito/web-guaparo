@@ -1,6 +1,6 @@
 ---
 layout: layout.njk
-script: /js/index.js
+scripts: ["/js/index.js"]
 currentPage: home
 ---
 
@@ -96,7 +96,7 @@ currentPage: home
         <div class="shops-tape__anim d-flex">
           {% for i in range(0,20) %}
             <article class="shop-logo-card m-4">
-              <img src="img/logos/guaparo.jpg" alt="Guaparo" height="80" />
+              <img class="logo img-static-width" src="img/logos/guaparo.jpg" alt="Guaparo" />
             </article>
           {% endfor %}
         </div>
@@ -107,7 +107,7 @@ currentPage: home
         <div class="shops-tape__anim reverse d-flex">
           {% for i in range(0,20) %}
             <article class="shop-logo-card m-4">
-              <img src="img/logos/guaparo.jpg" alt="Guaparo" height="80" />
+              <img class="logo img-static-width" src="img/logos/guaparo.jpg" alt="Guaparo" />
             </article>
           {% endfor %}
         </div>

@@ -34,43 +34,206 @@
   {
     "name": "Dominos",
     "logo": "/img/logos/domino.png",
-    "images": [],
+    "local": "PA-003",
+    "socialMedia": {
+      "instagram": "#",
+      "facebook": "#",
+      "web": "#"
+    },
+    "contact": {
+      "phone": "5555-55555",
+      "mail": "abcde@mail.com"
+    },
+    "description": "Habitant ligula primis natoque bibendum nisi condimentum mauris purus interdum rutrum ridiculus suscipit lobortis in, semper dis posuere sem senectus vehicula proin feugiat turpis torquent nullam. Habitant ligula primis natoque bibendum nisi condimentum mauris purus interdum rutrum ridiculus suscipit lobortis in, semper dis posuere sem senectus vehicula proin feugiat turpis torquent nullam. Habitant ligula primis natoque bibendum nisi condimentum mauris purus interdum rutrum ridiculus suscipit lobortis in, semper dis posuere sem senectus vehicula proin feugiat turpis torquent nullam. Habitant ligula primis natoque bibendum nisi condimentum mauris purus interdum rutrum ridiculus suscipit lobortis in, semper dis posuere sem senectus vehicula proin feugiat turpis torquent nullam. Habitant ligula primis natoque bibendum nisi condimentum mauris purus interdum rutrum ridiculus suscipit lobortis in, semper dis posuere sem senectus vehicula proin feugiat turpis torquent nullam.",
+    "images": [
+      {
+        "src": "/img/tienda.jpg",
+        "alt": "dominos"
+      },
+      {
+        "src": "/img/tienda.jpg",
+        "alt": "dominos"
+      },
+      {
+        "src": "/img/tienda.jpg",
+        "alt": "dominos"
+      }
+    ],
     "category": "comida"
   },
   {
     "name": "Computepuy",
     "logo": "/img/logos/computepuy.png",
-    "images": [],
-    "category": "comida"
+    "local": "PA-004",
+    "socialMedia": {
+      "twitter": "#",
+      "web": "#",
+      "whatsapp": "#"
+    },
+    "contact": {
+      "phone": "5555-55555",
+      "mail": "abcde@mail.com"
+    },
+    "description": "Habitant ligula primis natoque bibendum nisi condimentum mauris purus interdum rutrum ridiculus suscipit lobortis in, semper dis posuere sem senectus vehicula proin feugiat turpis torquent nullam. Habitant ligula primis natoque bibendum nisi condimentum mauris purus interdum rutrum ridiculus suscipit lobortis in, semper dis posuere sem senectus vehicula proin feugiat turpis torquent nullam. Habitant ligula primis natoque bibendum nisi condimentum mauris purus interdum rutrum ridiculus suscipit lobortis in, semper dis posuere sem senectus vehicula proin feugiat turpis torquent nullam. Habitant ligula primis natoque bibendum nisi condimentum mauris purus interdum rutrum ridiculus suscipit lobortis in, semper dis posuere sem senectus vehicula proin feugiat turpis torquent nullam. Habitant ligula primis natoque bibendum nisi condimentum mauris purus interdum rutrum ridiculus suscipit lobortis in, semper dis posuere sem senectus vehicula proin feugiat turpis torquent nullam.",
+    "images": [
+      {
+        "src": "/img/tienda.jpg",
+        "alt": "computepuy"
+      },
+      {
+        "src": "/img/tienda.jpg",
+        "alt": "computepuy"
+      },
+      {
+        "src": "/img/tienda.jpg",
+        "alt": "computepuy"
+      }
+    ],
+    "category": "tecnologia"
   },
   {
     "name": "CRE",
     "logo": "/img/logos/cre.png",
-    "images": [],
-    "category": "medicina"
+    "local": "PA-005",
+    "socialMedia": {
+      "instagram": "#",
+      "twitter": "#"
+    },
+    "contact": {
+      "phone": "5555-55555",
+      "mail": "abcde@mail.com"
+    },
+    "description": "Habitant ligula primis natoque bibendum nisi condimentum mauris purus interdum rutrum ridiculus suscipit lobortis in, semper dis posuere sem senectus vehicula proin feugiat turpis torquent nullam. Habitant ligula primis natoque bibendum nisi condimentum mauris purus interdum rutrum ridiculus suscipit lobortis in, semper dis posuere sem senectus vehicula proin feugiat turpis torquent nullam. Habitant ligula primis natoque bibendum nisi condimentum mauris purus interdum rutrum ridiculus suscipit lobortis in, semper dis posuere sem senectus vehicula proin feugiat turpis torquent nullam. Habitant ligula primis natoque bibendum nisi condimentum mauris purus interdum rutrum ridiculus suscipit lobortis in, semper dis posuere sem senectus vehicula proin feugiat turpis torquent nullam. Habitant ligula primis natoque bibendum nisi condimentum mauris purus interdum rutrum ridiculus suscipit lobortis in, semper dis posuere sem senectus vehicula proin feugiat turpis torquent nullam.",
+    "images": [
+      {
+        "src": "/img/tienda.jpg",
+        "alt": "centro de resonancia especializada"
+      },
+      {
+        "src": "/img/tienda.jpg",
+        "alt": "centro de resonancia especializada"
+      },
+      {
+        "src": "/img/tienda.jpg",
+        "alt": "centro de resonancia especializada"
+      }
+    ],
+    "category": "salud"
   },
   {
     "name": "DHL",
     "logo": "/img/logos/dhl.png",
-    "images": [],
-    "category": "Envios"
+    "local": "PA-006",
+    "socialMedia": {
+      "facebook": "#",
+      "web": "#",
+      "whatsapp": "#"
+    },
+    "contact": {
+      "phone": "5555-55555",
+      "mail": "abcde@mail.com"
+    },
+    "description": "Habitant ligula primis natoque bibendum nisi condimentum mauris purus interdum rutrum ridiculus suscipit lobortis in, semper dis posuere sem senectus vehicula proin feugiat turpis torquent nullam. Habitant ligula primis natoque bibendum nisi condimentum mauris purus interdum rutrum ridiculus suscipit lobortis in, semper dis posuere sem senectus vehicula proin feugiat turpis torquent nullam. Habitant ligula primis natoque bibendum nisi condimentum mauris purus interdum rutrum ridiculus suscipit lobortis in, semper dis posuere sem senectus vehicula proin feugiat turpis torquent nullam. Habitant ligula primis natoque bibendum nisi condimentum mauris purus interdum rutrum ridiculus suscipit lobortis in, semper dis posuere sem senectus vehicula proin feugiat turpis torquent nullam. Habitant ligula primis natoque bibendum nisi condimentum mauris purus interdum rutrum ridiculus suscipit lobortis in, semper dis posuere sem senectus vehicula proin feugiat turpis torquent nullam.",
+    "images": [
+      {
+        "src": "/img/tienda.jpg",
+        "alt": "dhl"
+      },
+      {
+        "src": "/img/tienda.jpg",
+        "alt": "dhl"
+      },
+      {
+        "src": "/img/tienda.jpg",
+        "alt": "dhl"
+      }
+    ],
+    "category": "envios"
   },
   {
     "name": "DiAnselmo",
     "logo": "/img/logos/dianselmo.png",
-    "images": [],
+    "local": "PA-007",
+    "socialMedia": {
+      "instagram": "#"
+    },
+    "contact": {
+      "phone": "5555-55555",
+      "mail": "abcde@mail.com"
+    },
+    "description": "Habitant ligula primis natoque bibendum nisi condimentum mauris purus interdum rutrum ridiculus suscipit lobortis in, semper dis posuere sem senectus vehicula proin feugiat turpis torquent nullam. Habitant ligula primis natoque bibendum nisi condimentum mauris purus interdum rutrum ridiculus suscipit lobortis in, semper dis posuere sem senectus vehicula proin feugiat turpis torquent nullam. Habitant ligula primis natoque bibendum nisi condimentum mauris purus interdum rutrum ridiculus suscipit lobortis in, semper dis posuere sem senectus vehicula proin feugiat turpis torquent nullam. Habitant ligula primis natoque bibendum nisi condimentum mauris purus interdum rutrum ridiculus suscipit lobortis in, semper dis posuere sem senectus vehicula proin feugiat turpis torquent nullam. Habitant ligula primis natoque bibendum nisi condimentum mauris purus interdum rutrum ridiculus suscipit lobortis in, semper dis posuere sem senectus vehicula proin feugiat turpis torquent nullam.",
+    "images": [
+      {
+        "src": "/img/tienda.jpg",
+        "alt": "dianselmo"
+      },
+      {
+        "src": "/img/tienda.jpg",
+        "alt": "dianselmo"
+      },
+      {
+        "src": "/img/tienda.jpg",
+        "alt": "dianselmo"
+      }
+    ],
     "category": "comida"
   },
   {
     "name": "Sermintra",
     "logo": "/img/logos/sermintra.png",
-    "images": [],
-    "category": "medicina"
+    "local": "PB-001",
+    "socialMedia": {
+      "instagram": "#",
+      "whatsapp": "#"
+    },
+    "contact": {
+      "phone": "5555-55555",
+      "mail": "abcde@mail.com"
+    },
+    "description": "Habitant ligula primis natoque bibendum nisi condimentum mauris purus interdum rutrum ridiculus suscipit lobortis in, semper dis posuere sem senectus vehicula proin feugiat turpis torquent nullam. Habitant ligula primis natoque bibendum nisi condimentum mauris purus interdum rutrum ridiculus suscipit lobortis in, semper dis posuere sem senectus vehicula proin feugiat turpis torquent nullam. Habitant ligula primis natoque bibendum nisi condimentum mauris purus interdum rutrum ridiculus suscipit lobortis in, semper dis posuere sem senectus vehicula proin feugiat turpis torquent nullam. Habitant ligula primis natoque bibendum nisi condimentum mauris purus interdum rutrum ridiculus suscipit lobortis in, semper dis posuere sem senectus vehicula proin feugiat turpis torquent nullam. Habitant ligula primis natoque bibendum nisi condimentum mauris purus interdum rutrum ridiculus suscipit lobortis in, semper dis posuere sem senectus vehicula proin feugiat turpis torquent nullam.",
+    "images": [
+      {
+        "src": "/img/tienda.jpg",
+        "alt": "sermintra"
+      },
+      {
+        "src": "/img/tienda.jpg",
+        "alt": "sermintra"
+      },
+      {
+        "src": "/img/tienda.jpg",
+        "alt": "sermintra"
+      }
+    ],
+    "category": "salud"
   },
   {
     "name": "Strong & fitness",
     "logo": "/img/logos/strong-and-fitness.png",
-    "images": [],
+    "local": "PB-002",
+    "socialMedia": {
+      "web": "#",
+      "whatsapp": "#"
+    },
+    "contact": {
+      "phone": "5555-55555",
+      "mail": "abcde@mail.com"
+    },
+    "description": "Habitant ligula primis natoque bibendum nisi condimentum mauris purus interdum rutrum ridiculus suscipit lobortis in, semper dis posuere sem senectus vehicula proin feugiat turpis torquent nullam. Habitant ligula primis natoque bibendum nisi condimentum mauris purus interdum rutrum ridiculus suscipit lobortis in, semper dis posuere sem senectus vehicula proin feugiat turpis torquent nullam. Habitant ligula primis natoque bibendum nisi condimentum mauris purus interdum rutrum ridiculus suscipit lobortis in, semper dis posuere sem senectus vehicula proin feugiat turpis torquent nullam. Habitant ligula primis natoque bibendum nisi condimentum mauris purus interdum rutrum ridiculus suscipit lobortis in, semper dis posuere sem senectus vehicula proin feugiat turpis torquent nullam. Habitant ligula primis natoque bibendum nisi condimentum mauris purus interdum rutrum ridiculus suscipit lobortis in, semper dis posuere sem senectus vehicula proin feugiat turpis torquent nullam.",
+    "images": [
+      {
+        "src": "/img/tienda.jpg",
+        "alt": "strong & fitness"
+      },
+      {
+        "src": "/img/tienda.jpg",
+        "alt": "strong & fitness"
+      },
+      {
+        "src": "/img/tienda.jpg",
+        "alt": "strong & fitness"
+      }
+    ],
     "category": "deporte"
   }
 ]

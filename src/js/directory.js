@@ -96,7 +96,7 @@ const createModalBodyHTMLContent = (shop) => {
     <div class="row g-0">
       <div class="col p-3 d-none d-lg-block col-lg-4">
         <div class="sticky-top">
-          <img class="large-logo d-block mx-auto" src="${shop.logo}" alt="${shop.name}" />
+          <img class="large-logo d-block mx-auto mb-3" src="${shop.logo}" alt="${shop.name}" />
           <p class="fs-6 opacity-75">Local ${shop.local}</p>
           ${createModalContactHTML(shop)}
           ${createModalSocialMediaHTML(shop)}

@@ -51,6 +51,21 @@
   --bs-body-bg-rgb: 205, 200, 234;
   --bs-body-color-rgb: 80, 61, 117;
   --bs-primary-rgb: 11, 133, 190;
+  --bs-font-sans-serif: "Oswald", sans-serif;
+  --bs-body-font-family: "Lato", sans-serif;
+}
+
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+display-1,
+display-2,
+display-3,
+display-4,
+display-5 {
+  font-family: "Oswald", sans-serif;
 }
 
 .navbar {
@@ -386,25 +401,6 @@
   clip-path: polygon(0 5rem, 50% 0, 100% 5rem, 100% 100%, 0 100%);
 }
 
-/*
-@media screen and (min-width: 768px) {
-  .location {
-    --bg-direction: to left;
-
-    left: initial;
-    top: 50%;
-    right: 1rem;
-    transform: translateY(-50%);
-  }
-
-  .location__body {
-    padding: 2rem;
-    padding-left: 6rem;
-    clip-path: polygon(5rem 0, 0 50%, 5rem 100%, 100% 100%, 100% 0);
-  }
-}
-*/
-
 @media screen and (min-width: 992px) {
   .location {
     right: 5%;
@@ -428,11 +424,15 @@
 
 .header-section {
   height: 30vh;
-  background-image: linear-gradient(
-    to left,
-    var(--gp-purple-600),
-    var(--gp-blue-600)
-  );
+  background-image: url(/img/patron-geometrico.png),
+    linear-gradient(
+      to left,
+      var(--gp-purple-600),
+      var(--gp-blue-600)
+    );
+  background-size: 300px auto, 100%;
+  background-position: 0 var(--position-y, 0);
+  transition: background-position 100ms ease;
 }
 
 .footer {
@@ -453,9 +453,13 @@
 
 .logo {
   display: block;
-  width: 80px;
+  width: auto;
   height: 80px;
-  object-fit: cover;
+  object-fit: contain;
+}
+
+.img-static-width {
+  max-width: initial;
 }
 
 .large-logo {
@@ -488,18 +492,12 @@
 
 .contact-form {
   width: 500px;
-  max-width: 100%;
+  max-width: calc(100% - 2rem);
   background-color: var(--bs-white);
 }
 
 .contact-form__textarea {
   min-height: 10rem !important;
-}
-
-@media screen and (min-width: 768px) {
-  .position-md-static {
-    position: static !important;
-  }
 }
 
 .loader, .loader:before, .loader:after {
@@ -600,4 +598,12 @@
 
 .shop-modal-content {
   min-height: 30vh;
+}
+
+.gp-shadow {
+  box-shadow: 8px 8px 0 0 #2a2b2844;
+}
+
+.ff-oswald {
+  font-family: "Oswald", sans-serif;
 }

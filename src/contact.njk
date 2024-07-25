@@ -1,25 +1,25 @@
 ---
 layout: "layout.njk"
 sectionTitle: "Contacto"
-script: /js/contact.js
+scripts: ["/js/contact.js", "/js/section-header.js"]
 permalink: "/contacto/"
 currentPage: contact
 ---
 
 {% include "header-section.njk" %}
 
-<section class="full-section position-relative">
-  <div class="row">
-    <div class="col-12 col-md-6">
+<section class="full-section bg-body">
+  <div class="container row position-relative">
+    <div class="col-6 d-none d-lg-block">
       <img class="img-fluid" src="/img/tienda.jpg" alt="Contacto" />
     </div>
     <div
-      class="col-12 col-md-6 d-flex justify-content-center align-items-center position-absolute position-md-static"
+      class="col-12 col-lg-6 d-flex justify-content-center align-items-center"
     >
       <form
         id="contact-form"
-        class="contact-form p-3 rounded"
-        action="https://formsubmit.co/50a3cbbc36fd2dcc1e2da617b2d5986b"
+        class="contact-form p-3 rounded gp-shadow"
+        action=""
         method="POST"
         novalidate
       >
@@ -78,9 +78,12 @@ currentPage: contact
           <div class="invalid-feedback">Escribenos tu pregunta o consulta</div>
         </div>
         <div class="text-end">
-          <button class="btn btn-outline-primary ms-auto" type="submit">
-            <div id="loader" class="loader d-none"></div>
-            <span id="btn-submit-text">Enviar</span>
+          <button
+            id="btn-submit" 
+            class="btn btn-outline-primary ms-auto" 
+            type="submit"
+          >
+            Enviar
           </button>
         </div>
       </form>
