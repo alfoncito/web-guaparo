@@ -97,7 +97,9 @@ const createModalBodyHTMLContent = (shop) => {
       <div class="col p-3 d-none d-lg-block col-lg-4">
         <div class="sticky-top">
           <img class="large-logo d-block mx-auto mb-3" src="${shop.logo}" alt="${shop.name}" />
-          <p class="fs-6 opacity-75">Local ${shop.local}</p>
+          <p class="fs-6 opacity-75 text-center">
+          	<b>Local</b> ${shop.locals.join("|")}
+          </p>
           ${createModalContactHTML(shop)}
           ${createModalSocialMediaHTML(shop)}
         </div>
@@ -107,7 +109,9 @@ const createModalBodyHTMLContent = (shop) => {
         <div class="p-3">
           <h4 class="d-none d-lg-block fs-2 text-primary">${shop.name}</h4>
           <div class="d-flex justify-content-between d-lg-none">
-            <p class="fs-6 opacity-75">Local ${shop.local ?? "Por ahi anda."}</p>
+            <p class="fs-6 opacity-75">
+            	<b>Local</b> ${shop.locals.join("|") ?? "Por ahi anda."}
+            </p>
             ${createModalSocialMediaHTML(shop)}
           </div>
           <p>${shop.description ?? "Descripción no disponible"}</p>
@@ -226,8 +230,10 @@ const renderShops = (shops) => {
     $target = document.getElementById("shops-card-target"),
     $frag = document.createDocumentFragment();
 
+  const D = 0.2;
+
   $target.innerHTML = "";
-  shops.forEach((shop) => {
+  shops.forEach((shop, index) => {
     if (currentCategory !== shop.category) {
       currentCategory = shop.category;
       if ($cardsContainer) $frag.appendChild($cardsContainer);
@@ -235,7 +241,9 @@ const renderShops = (shops) => {
       $cardsContainer = createCardsContainer();
     }
 
-    $cardsContainer.appendChild(createShopCard(shop));
+    $cardsContainer.appendChild(
+    	createShopCard(shop, D * index)
+    );
   });
   $frag.appendChild($cardsContainer);
   $target.appendChild($frag);
@@ -263,10 +271,11 @@ const createCategoryTitle = (title) => {
   return $frag;
 };
 
-const createShopCard = (shop) => {
+const createShopCard = (shop, delay = 0) => {
   let $card = document.createElement("div");
 
   $card.classList.add("col", "js-shop-card");
+  $card.setAttribute("style", `--delay: ${delay}s`);
   $card.dataset.shopName = shop.name;
   $card.insertAdjacentHTML(
     "afterbegin",
@@ -274,7 +283,11 @@ const createShopCard = (shop) => {
     <div class="card-shop card my-3 p-2">
       <img src="${shop.logo}" class="card-img-top logo mx-auto" alt="${shop.name}">
       <div class="card-body p-1">
-        <h5 class="card-title text-center m-0 fs-6 fw-light">${shop.name.toUpperCase()}</h5>
+        <h5 
+        	class="ff-lato text-center m-0 fs-6 text-body-secondary mt-2"
+        >
+        ${shop.name.toUpperCase()}
+        </h5>
       </div>
     </div>
   `,
@@ -290,7 +303,6 @@ const sortShops = (shops) => {
 
 const handleFilter = () => {
   let checksFilter = document.querySelectorAll(".js-check-filter"),
-    $btnAppplyFilter = document.getElementById("btn-apply-filter"),
     $btnShowAll = document.getElementById("btn-show-all"),
     $collapse = document.getElementById("form-collapse"),
     $btnFilter = document.getElementById("btn-filter"),
@@ -300,7 +312,7 @@ const handleFilter = () => {
     isExpanded = false,
     media = matchMedia(breakpoint.md);
 
-  $btnAppplyFilter.addEventListener("click", () => {
+  const handleCheckChange = () => {
     let filters = [],
       shopsFiltered = [];
 
@@ -318,6 +330,10 @@ const handleFilter = () => {
       renderShops(shopsFiltered);
     }
     hideCollapseIfSmall();
+  };
+
+  checksFilter.forEach(($check) => {
+		$check.addEventListener("change", handleCheckChange);
   });
 
   $btnShowAll.addEventListener("click", () => {

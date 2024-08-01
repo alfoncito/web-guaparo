@@ -3,7 +3,7 @@
     "name": "Fuji",
     "logo": "/img/logos/fuji.png",
     "category": "ropa",
-    "local": "PA-002",
+    "locals": ["PA-002"],
     "socialMedia": {
       "instagram": "#",
       "twitter": "#",
@@ -34,7 +34,7 @@
   {
     "name": "Dominos",
     "logo": "/img/logos/domino.png",
-    "local": "PA-003",
+    "locals": ["PA-003"],
     "socialMedia": {
       "instagram": "#",
       "facebook": "#",
@@ -64,7 +64,7 @@
   {
     "name": "Computepuy",
     "logo": "/img/logos/computepuy.png",
-    "local": "PA-004",
+    "locals": ["PA-004"],
     "socialMedia": {
       "twitter": "#",
       "web": "#",
@@ -94,7 +94,7 @@
   {
     "name": "CRE",
     "logo": "/img/logos/cre.png",
-    "local": "PA-005",
+    "locals": ["PA-005"],
     "socialMedia": {
       "instagram": "#",
       "twitter": "#"
@@ -123,7 +123,7 @@
   {
     "name": "DHL",
     "logo": "/img/logos/dhl.png",
-    "local": "PA-006",
+    "locals": ["PA-006"],
     "socialMedia": {
       "facebook": "#",
       "web": "#",
@@ -153,7 +153,7 @@
   {
     "name": "DiAnselmo",
     "logo": "/img/logos/dianselmo.png",
-    "local": "PA-007",
+    "locals": ["PA-007"],
     "socialMedia": {
       "instagram": "#"
     },
@@ -181,7 +181,7 @@
   {
     "name": "Sermintra",
     "logo": "/img/logos/sermintra.png",
-    "local": "PB-001",
+    "locals": ["PB-001"],
     "socialMedia": {
       "instagram": "#",
       "whatsapp": "#"
@@ -210,7 +210,7 @@
   {
     "name": "Strong & fitness",
     "logo": "/img/logos/strong-and-fitness.png",
-    "local": "PB-002",
+    "locals": ["PB-002", "PB-003"],
     "socialMedia": {
       "web": "#",
       "whatsapp": "#"

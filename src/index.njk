@@ -54,48 +54,45 @@ currentPage: home
 </div>
 
 <section class="full-section bg-body px-3 text-black">
-  <div class="container row g-1 gx-md-5">
-    <div class="col-12 col-md-6 col-lg-8">
-      <img
-        class="img-fluid rounded mb-3"
-        src="/img/cc1.jpg"
-        alt="centro comercial"
-      />
-    </div>
-    <div class="col-12 col-md-6 col-lg-4">
-      <h3 class="h2 text-body">C.C Guaparo</h3>
-      <p>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam,
-        quibusdam quaerat nisi iste ullam facilis natus impedit animi, vel
-        quam similique temporibus distinctio fuga corporis saepe ratione
-        corrupti nulla odio? Lorem ipsum dolor sit amet consectetur,
-        adipisicing elit. Sequi exercitationem facere id, cumque ratione iusto
-        officia nulla laboriosam odio impedit itaque quia consectetur
-        molestiae veritatis non obcaecati. Aspernatur, adipisci facilis.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam
-        sapiente ipsam praesentium quae, illum amet iste doloremque
-        perferendis dolore itaque distinctio quo, aliquam consequatur
-        consectetur. Placeat cum omnis consequuntur ipsam!
-      </p>
+  <div class="container">
+    <div class="row g-1 gx-md-5">
+      <div class="col-12 col-md-6 col-lg-8">
+        <img
+          class="img-fluid rounded mb-3"
+          src="/img/tienda.jpg"
+          alt="centro comercial"
+        />
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <h3 class="h2 text-body">C.C Guaparo</h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam,
+          quibusdam quaerat nisi iste ullam facilis natus impedit animi, vel
+          quam similique temporibus distinctio fuga corporis saepe ratione
+          corrupti nulla odio? Lorem ipsum dolor sit amet consectetur,
+          adipisicing elit. Sequi exercitationem facere id, cumque ratione iusto
+          officia nulla laboriosam odio impedit itaque quia consectetur
+          molestiae veritatis non obcaecati. Aspernatur, adipisci facilis.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam
+          sapiente ipsam praesentium quae, illum amet iste doloremque
+          perferendis dolore itaque distinctio quo, aliquam consequatur
+          consectetur. Placeat cum omnis consequuntur ipsam!
+        </p>
+      </div>
     </div>
   </div>
 </section>
 
 <section class="full-section">
   <div class="w-100 overflow-hidden">
-    <div class="d-flex justify-content-between align-items-center px-3 px-md-5">
-      <h2 class="h2 text-primary">Nuestras tiendas</h2>
-      <a class="gp-link-primary text-decoration-none" href="/directorio">
-        Ver directorio
-      </a>
-    </div>
+    <h2 class="h2 text-primary text-center">Nuestras tiendas</h2>
     <div class="shops-tape my-1">
       <div class="shops-tape__mask">
         <div class="shops-tape__anim d-flex">
           {% for i in range(0,20) %}
-            <article class="shop-logo-card m-4">
+            <article class="shop-logo-card my-3 mx-5">
               <img class="logo img-static-width" src="img/logos/guaparo.jpg" alt="Guaparo" />
             </article>
           {% endfor %}
@@ -106,7 +103,7 @@ currentPage: home
       <div class="shops-tape__mask">
         <div class="shops-tape__anim reverse d-flex">
           {% for i in range(0,20) %}
-            <article class="shop-logo-card m-4">
+            <article class="shop-logo-card my-3 mx-5">
               <img class="logo img-static-width" src="img/logos/guaparo.jpg" alt="Guaparo" />
             </article>
           {% endfor %}
@@ -119,11 +116,11 @@ currentPage: home
 <section class="full-section">
   <div class="container">
     <h2 class="h2 text-center mb-5 text-primary">Nuestros servicios</h2>
-    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-5">
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 gx-0 gy-3 g-md-5">
       <div class="col">
         <article class="card-service rounded">
-          <div>
-            <i class="bi bi-shield-check fs-1 fw-bold me-2"></i>
+          <div class="me-3 text-body">
+            <i class="bi bi-shield-check fs-1 fw-bold"></i>
           </div>
           <div>
             <h4 class="h4 text-body">Seguridad</h4>
@@ -138,8 +135,8 @@ currentPage: home
       </div>
       <div class="col">
         <article class="card-service rounded">
-          <div>
-            <i class="bi bi-question-square fs-1 fw-bold me-2"></i>
+          <div class="me-3 text-body">
+            <i class="bi bi-question-square fs-1 fw-bold"></i>
           </div>
           <div>
             <h4 class="h4 text-body">Objetos perdidos</h4>
@@ -154,11 +151,11 @@ currentPage: home
       </div>
       <div class="col">
         <article class="card-service rounded">
-          <div>
-            <i class="bi bi-car-front-fill fs-1 fw-bold me-2"></i>
+          <div class="me-3 text-body">
+            <i class="bi bi-car-front-fill fs-1 fw-bold"></i>
           </div>
           <div>
-            <h4 class="h4 text-body">Estacinamiento</h4>
+            <h4 class="h4 text-body">Estacionamiento</h4>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit.
               Exercitationem itaque perferendis perspiciatis molestiae, repellat
@@ -170,10 +167,8 @@ currentPage: home
       </div>
       <div class="col">
         <article class="card-service rounded">
-          <div>
-            <span class="fs-1 fw-bold me-3">
-              <i class="bi bi-person-standing-dress"></i>
-            </span>
+          <div class="me-3 text-body">
+            <i class="bi bi-person-standing-dress fs-1 fw-bodl"></i>
           </div>
           <div>
             <h4 class="h4 text-body">Sanitarios</h4>
@@ -188,8 +183,8 @@ currentPage: home
       </div>
       <div class="col">
         <article class="card-service rounded">
-          <div>
-            <i class="bi bi-person-arms-up fs-1 fw-bold me-2"></i>
+          <div class="me-3 text-body">
+            <i class="bi bi-person-arms-up fs-1 fw-bold"></i>
           </div>
           <div>
             <h4 class="h4 text-body">Zona de niños</h4>
@@ -204,8 +199,8 @@ currentPage: home
       </div>
       <div class="col">
         <article class="card-service rounded">
-          <div>
-            <i class="bi bi-cookie fs-1 fw-bold me-2"></i>
+          <div class="me-3 text-body"> 
+            <i class="bi bi-cookie fs-1 fw-bold"></i>
           </div>
           <div>
             <h4 class="h4 text-body">Mascotas</h4>
@@ -222,67 +217,69 @@ currentPage: home
   </div>
 </section>
 
-<section class="section-schedule full-section text-center text-md-start">
-  <div class="w-75">
-    <h2 class="display-1 fw-bold text-body">Horarios</h2>
-    <p class="fs-1 mb-0 mt-5">10:00 A.M a 9:00 P.M.</p>
-    <p class="fs-3 mt-0 text-primary">Lunes a sábados</p>
-    <p class="fs-1 mb-0 mt-5">12:00 A.M. a 8:00 P.M.</p>
-    <p class="fs-3 mb-0 text-primary">Domingo y feriados</p>
-  </div>
+<section class="section-schedule full-section text-center">
+  <h2 class="display-3 fw-bold text-body">Horarios</h2>
+  <p class="fs-1 mb-0 mt-5 text-body-secondary">10:00 A.M a 9:00 P.M.</p>
+  <p class="fs-3 mt-0 text-primary">Lunes a sábados</p>
+  <p class="fs-1 mb-0 mt-2 text-body-secondary">12:00 A.M. a 8:00 P.M.</p>
+  <p class="fs-3 mb-0 text-primary">Domingo y feriados</p>
 </section>
 
 <section class="full-section bg-body px-3">
-  <div class="container row g-4">
-    <div class="col col-12 col-md-6 col-xl-8 position-relative align-self-center">
-      <img class="img-fluid rounded" src="/img/tienda.jpg" alt="Locales" />
-      <a
-        href="#"
-        class="btn-fancy position-absolute top-50 start-50 translate-middle fs-5 d-none d-md-inline-flex"
-      >
-        Ver locales
-        <i class="btn-fancy__icon bi bi-arrow-right"></i>
-      </a>
-    </div>
-    <div class="col order-md-first col-12 col-md-6 col-xl-4">
-      <h2 class="h2 text-body mb-3 mx-3 text-center text-sm-start">
-        ¿Interesado en abrir una tienda con nosotros?
-      </h2>
-      <ul class="list-group list-group-flush pe-3">
-        <li class="list-group-item">Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
-        <li class="list-group-item">Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
-        <li class="list-group-item">Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
-        <li class="list-group-item">Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
-        <li class="list-group-item">Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
-      </ul>
-      <div class="text-center d-md-none">
-        <a href="#" class="btn-fancy fs-5">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col col-12 col-md-6 position-relative align-self-center">
+        <img class="img-fluid rounded" src="/img/tienda.jpg" alt="Locales" />
+        <a
+          href="#"
+          class="btn-fancy gp-shadow position-absolute top-50 start-50 translate-middle fw-bold d-none d-md-inline-flex"
+        >
           Ver locales
           <i class="btn-fancy__icon bi bi-arrow-right"></i>
         </a>
-      <div>
+      </div>
+      <div class="col order-md-first col-12 col-md-6">
+        <h2 class="h2 text-body mb-3 mx-3 text-center text-sm-start">
+          ¿Interesado en abrir una tienda con nosotros?
+        </h2>
+        <ul class="list-group list-group-flush pe-3">
+          <li class="list-group-item p-3">Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+          <li class="list-group-item p-3">Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+          <li class="list-group-item p-3">Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+          <li class="list-group-item p-3">Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+          <li class="list-group-item p-3">Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+        </ul>
+        <div class="text-center d-md-none">
+          <a href="#" class="btn-fancy gp-shadow fw-bold">
+            Ver locales
+            <i class="btn-fancy__icon bi bi-arrow-right"></i>
+          </a>
+        <div>
+      </div>
     </div>
   </div>
 </section>
 
 <section class="full-section section-location">
-  <div class="container row position-relative">
-    <div class="col col-12 col-lg-9">
-      <img class="img-fluid" src="/img/mapa.jpg" alt="Mapa" />
-    </div>
-    <article class="location">
-      <div class="location__body">
-        <h2 class="h2 text-primary mb-3">Ubícanos</h2>
-        <p class="fs-5 my-1">
-          <i class="bi bi-geo-alt-fill"></i> Calle Cualquiera 123, Cualquier Lugar
-        </p>
-        <p class="fs-5 my-1">
-          <i class="bi bi-telephone-fill"></i> 91-1234-567 | +34-91-1234-567
-        </p>
-        <p class="fs-5 my-1">
-          <i class="bi bi-envelope-at-fill"></i> hola@unsitiogenial.es
-        </p>
+  <div class="container">
+    <div class="row position-relative">
+      <div class="col col-12 col-lg-9">
+        <img class="img-fluid" src="/img/mapa.jpg" alt="Mapa" />
       </div>
-    </article>
+      <article class="location gp-drop-shadow">
+        <div class="location__body">
+          <h2 class="h2 text-primary mb-3">Ubícanos</h2>
+          <p class="my-1">
+            <i class="bi bi-geo-alt-fill"></i> Calle Cualquiera 123, Cualquier Lugar
+          </p>
+          <p class="my-1">
+            <i class="bi bi-telephone-fill"></i> 91-1234-567 | +34-91-1234-567
+          </p>
+          <p class="my-1">
+            <i class="bi bi-envelope-at-fill"></i> hola@unsitiogenial.es
+          </p>
+        </div>
+      </article>
+    </div>
   </div>
 </section>

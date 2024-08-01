@@ -1,6 +1,6 @@
 ---
 layout: layout.njk
-scripts: ["/js/directory.js", "/js/section-header.js"]
+scripts: ["/js/directory.js"]
 sectionTitle: Directorio
 permalink: "/directorio/"
 currentPage: directory
@@ -53,30 +53,17 @@ currentPage: directory
                 </div>
               </div>
             {% endfor %}
-            <div class="row row-cols-2 row-cols-md-1 g-2 mt-3">
-              <div class="col">
-                <button
-                  type="button"
-                  id="btn-show-all"
-                  class="btn btn-outline-primary w-100"
-                >
-                  Mostrar todos
-                </button>
-              </div>
-              <div class="col">
-                <button
-                  type="button"
-                  id="btn-apply-filter"
-                  class="btn btn-primary w-100"
-                >
-                  Aplicar
-                </button>
-              </div>
-            </div>
+              <button
+                type="button"
+                id="btn-show-all"
+                class="btn btn-outline-primary w-100 mt-3"
+              >
+                Mostrar todos
+              </button>
           </fieldset>
         </form>
       </div>
     </div>
   </aside>
-  <section class="col-12 col-md-9" id="shops-card-target"></section>
+  <section class="col-12 col-md-9 bg-white p-4" id="shops-card-target"></section>
 </section>

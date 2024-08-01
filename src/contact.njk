@@ -1,92 +1,94 @@
 ---
 layout: "layout.njk"
 sectionTitle: "Contacto"
-scripts: ["/js/contact.js", "/js/section-header.js"]
+scripts: ["/js/contact.js"]
 permalink: "/contacto/"
 currentPage: contact
 ---
 
 {% include "header-section.njk" %}
 
-<section class="full-section bg-body">
-  <div class="container row position-relative">
-    <div class="col-6 d-none d-lg-block">
-      <img class="img-fluid" src="/img/tienda.jpg" alt="Contacto" />
-    </div>
-    <div
-      class="col-12 col-lg-6 d-flex justify-content-center align-items-center"
-    >
-      <form
-        id="contact-form"
-        class="contact-form p-3 rounded gp-shadow"
-        action=""
-        method="POST"
-        novalidate
+<section class="full-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-6 d-none d-lg-block">
+        <img class="img-fluid" src="/img/tienda.jpg" alt="Contacto" />
+      </div>
+      <div
+        class="col-12 col-lg-6 d-flex justify-content-center align-items-center"
       >
-        <input type="hidden" name="_next" value="http://127.0.0.1:4321/" />
-        <input type="hidden" name="_template" value="table" />
-        <input type="hidden" name="_subject" value="Consulta a C.C. Guaparo" />
-        <p class="text-center">
-          Si tienes cualquier consulta o duda, no dudes en escribirnos.
-        </p>
-        <div class="form-floating mb-3">
-          <input
-            class="form-control"
-            id="contact-name"
-            type="text"
-            name="nombre"
-            placeholder="Nombre y apellido"
-            required
-            autofocus="true"
-          />
-          <label for="contact-name">Nombre y apellido</label>
-          <div class="invalid-feedback">El nombre y apellido es requerido</div>
-        </div>
-        <div class="form-floating mb-3">
-          <input
-            class="form-control"
-            type="email"
-            name="correo"
-            id="contact-email"
-            placeholder="Correo electrónico"
-            required
-          />
-          <label for="contact-email">Correo electrónico</label>
-          <div class="invalid-feedback">Escribe tu correo electrónico</div>
-        </div>
-        {# <div class="form-floating mb-3">
-          <input
-            class="form-control"
-            type="text"
-            name="_subject"
-            id="contac-subject"
-            placeholder="Asunto"
-            required
-          />
-          <label for="contact-subject">Asunto</label>
-          <div class="invalid-feedback">¿Cual es el asunto?</div>
-        </div> #}
-        <div class="form-floating mb-3">
-          <textarea
-            class="contact-form__textarea form-control"
-            name="mensaje"
-            id="contact-message"
-            placeholder="message"
-            required
-          ></textarea>
-          <label for="contact-message">Mensage</label>
-          <div class="invalid-feedback">Escribenos tu pregunta o consulta</div>
-        </div>
-        <div class="text-end">
-          <button
-            id="btn-submit" 
-            class="btn btn-outline-primary ms-auto" 
-            type="submit"
-          >
-            Enviar
-          </button>
-        </div>
-      </form>
+        <form
+          id="contact-form"
+          class="contact-form p-3 rounded gp-shadow border"
+          action=""
+          method="POST"
+          novalidate
+        >
+          <input type="hidden" name="_next" value="http://127.0.0.1:4321/" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_subject" value="Consulta a C.C. Guaparo" />
+          <p class="text-center text-primary">
+            Si tienes cualquier consulta o duda, no dudes en escribirnos.
+          </p>
+          <div class="form-floating mb-3">
+            <input
+              class="form-control"
+              id="contact-name"
+              type="text"
+              name="nombre"
+              placeholder="Nombre y apellido"
+              required
+              autofocus="true"
+            />
+            <label for="contact-name">Nombre y apellido</label>
+            <div class="invalid-feedback">El nombre y apellido es requerido</div>
+          </div>
+          <div class="form-floating mb-3">
+            <input
+              class="form-control"
+              type="email"
+              name="correo"
+              id="contact-email"
+              placeholder="Correo electrónico"
+              required
+            />
+            <label for="contact-email">Correo electrónico</label>
+            <div class="invalid-feedback">Escribe tu correo electrónico</div>
+          </div>
+          {# <div class="form-floating mb-3">
+            <input
+              class="form-control"
+              type="text"
+              name="_subject"
+              id="contac-subject"
+              placeholder="Asunto"
+              required
+            />
+            <label for="contact-subject">Asunto</label>
+            <div class="invalid-feedback">¿Cual es el asunto?</div>
+          </div> #}
+          <div class="form-floating mb-3">
+            <textarea
+              class="contact-form__textarea form-control"
+              name="mensaje"
+              id="contact-message"
+              placeholder="message"
+              required
+            ></textarea>
+            <label for="contact-message">Mensage</label>
+            <div class="invalid-feedback">Escribenos tu pregunta o consulta</div>
+          </div>
+          <div class="text-end">
+            <button
+              id="btn-submit" 
+              class="btn btn-outline-primary ms-auto" 
+              type="submit"
+            >
+              Enviar
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
 </section>

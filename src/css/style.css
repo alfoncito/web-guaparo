@@ -55,6 +55,10 @@
   --bs-body-font-family: "Lato", sans-serif;
 }
 
+body {
+	background-color: #f6f6f6;
+}
+
 h1, .h1,
 h2, .h2,
 h3, .h3,
@@ -84,7 +88,6 @@ display-5 {
   --bg-link-transform: translate(-100%, 0);
 
   position: relative;
-  font-weight: bold;
   overflow: hidden;
 }
 
@@ -129,7 +132,6 @@ display-5 {
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  opacity: var(--bs-bg-opacity);
 }
 
 .hamburger-bar {
@@ -230,7 +232,7 @@ display-5 {
 }
 
 .shops-tape__anim {
-  animation: move-tape 15s linear infinite normal;
+  animation: move-tape 50s linear infinite normal;
 }
 
 .shops-tape__anim.reverse {
@@ -275,16 +277,12 @@ display-5 {
 .shop-tooltip {
   --bs-tooltip-bg: var(--gp-grey-900);
   --bs-tooltip-color: var(--bs-white);
-
-  font-size: calc(1.275rem + 0.3vw);
 }
 
 .full-section {
   width: 100%;
-  min-height: 100vh;
-  display: grid;
-  place-items: center;
-  padding: 2rem 0;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
 }
 
 .full-section__img {
@@ -321,14 +319,6 @@ display-5 {
   height: 100%;
 }
 
-.section-schedule {
-  background-image: linear-gradient(
-    90deg,
-    var(--gp-purple-400) 20%,
-    transparent 20.1%
-  );
-}
-
 .list-group-item {
   --bs-list-group-bg: transparent;
   --bs-list-group-border-color: var(--gp-purple-700);
@@ -352,7 +342,6 @@ display-5 {
   color: var(--gp-blue-100);
   display: inline-flex;
   align-items: center;
-  box-shadow: 10px 10px 0 0 #0004;
 }
 
 .btn-fancy:hover {
@@ -373,7 +362,7 @@ display-5 {
 }
 
 .section-location {
-  margin-bottom: 5rem;
+  margin-bottom: 10rem;
 }
 
 @media screen and (min-width: 992px) {
@@ -390,7 +379,6 @@ display-5 {
   left: 50%;
   transform: translateX(-50%);
   width: max-content;
-  filter: drop-shadow(10px 10px 0 #0004);
 }
 
 .location__body {
@@ -432,6 +420,7 @@ display-5 {
     );
   background-size: 300px auto, 100%;
   background-position: 0 var(--position-y, 0);
+  background-attachment: fixed;
   transition: background-position 100ms ease;
 }
 
@@ -493,7 +482,7 @@ display-5 {
 .contact-form {
   width: 500px;
   max-width: calc(100% - 2rem);
-  background-color: var(--bs-white);
+  background-color: white;
 }
 
 .contact-form__textarea {
@@ -590,6 +579,17 @@ display-5 {
   transition: background-color 300ms ease;
   border: none;
   cursor: pointer;
+  animation: fade-in 500ms ease var(--delay, 0s) 1 normal both;
+}
+
+@keyframes fade-in {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
 }
 
 .card-shop:hover {
@@ -601,5 +601,13 @@ display-5 {
 }
 
 .gp-shadow {
-  box-shadow: 8px 8px 0 0 #2a2b2844;
+  box-shadow: 8px 8px 0 0 #2a2b2811;
+}
+
+.gp-drop-shadow {
+	filter: drop-shadow(8px 8px 0 #2a2b2811);
+}
+
+.ff-lato {
+	font-family: "Lato", sans-serif;
 }
