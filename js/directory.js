@@ -11,10 +11,10 @@ const main = () => {
 };
 
 const loadShopsCard = () => {
+  const API_SHOPS = resolvePath("api/all-shops-info.json");
+
   let $shopsTarget = document.getElementById("shops-card-target"),
     $loader = createLoaderElement();
-
-  const API_SHOPS = resolvePath("api/all-shops-info.json");
 
   $shopsTarget.insertAdjacentElement("afterbegin", $loader);
   fetch(API_SHOPS)
@@ -45,14 +45,14 @@ const setupModal = () => {
   let $shopModal = document.getElementById("shop-modal"),
     $modalBody = $shopModal.querySelector(".modal-body"),
     $modalHeader = $shopModal.querySelector(".modal-header"),
-    modal = new bs.Modal($shopModal, { backdrop: "static" }),
+    modal = new bs.Modal($shopModal, {}),
     _shop;
 
   $shopModal.addEventListener("show.bs.modal", () => {
     let $loader = createLoaderElement();
 
     $modalBody.appendChild($loader);
-    fetch(resolevePath(_shop.apiPath))
+    fetch(resolvePath(_shop.apiPath))
       .then((res) => res.json())
       .then((fullInfoShop) => {
 				$loader.remove();
