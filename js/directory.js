@@ -1,7 +1,8 @@
 import * as bs from "./bootstrap.js";
 import breakpoint from "./breakpoint.js";
+import pathprefix from "./pathprefix.js";
 
-const API_SHOPS = "/api/all-shops-info.json";
+const API_SHOPS = `${pathprefix}api/all-shops-info.json`;
 
 let shops;
 
@@ -80,7 +81,11 @@ const setupModal = () => {
 
 const createModalHeaderHTMLContent = (shop) => {
   return `
-    <img class="menu-logo d-lg-none" src="${shop.logo}" alt="${shop.name}" />
+    <img 
+    	class="menu-logo d-lg-none" 
+    	src="${resolvePath(shop.logo)}" 
+    	alt="${shop.name}" 
+    />
     <h4 class="fs-2 px-3 d-lg-none text-primary">${shop.name}</h4>
     <button
         class="btn-close"
@@ -96,7 +101,11 @@ const createModalBodyHTMLContent = (shop) => {
     <div class="row g-0">
       <div class="col p-3 d-none d-lg-block col-lg-4">
         <div class="sticky-top">
-          <img class="large-logo d-block mx-auto mb-3" src="${shop.logo}" alt="${shop.name}" />
+          <img 
+          	class="large-logo d-block mx-auto mb-3" 
+          	src="${resolvePath(shop.logo)}" 
+          	alt="${shop.name}" 
+          />
           <p class="fs-6 opacity-75 text-center">
           	<b>Local</b> ${shop.locals.join("|")}
           </p>
@@ -197,7 +206,11 @@ const createModalCaruselItemsHTML = (images) => {
   images.forEach((img, index) => {
     items += `
       <div class="carousel-item carousel-shop-item ${index === 0 ? "active" : ""}">
-        <img class="carousel-shop-item__img" src="${img.src}" alt="${img.alt}" />
+        <img 
+        	class="carousel-shop-item__img" 
+        	src="${resolvePath(img.src)}" 
+        	alt="${img.alt}" 
+        />
       </div>
     `;
   });
@@ -378,6 +391,12 @@ const createLoaderElement = () => {
 
   $loader.classList.add("loader", "my-5");
   return $loader;
+};
+
+const resolvePath = (path) => {
+	let url = `${pathprefix}${path}`;
+
+	return url.replace(/\/\//g, "/");
 };
 
 document.addEventListener("DOMContentLoaded", main);
