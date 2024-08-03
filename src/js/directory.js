@@ -1,7 +1,6 @@
 import * as bs from "./bootstrap.js";
 import breakpoint from "./breakpoint.js";
-
-const API_SHOPS = "/api/all-shops-info.json";
+import pathprefix from "./pathprefix.js";
 
 let shops;
 
@@ -12,6 +11,8 @@ const main = () => {
 };
 
 const loadShopsCard = () => {
+  const API_SHOPS = resolvePath("api/all-shops-info.json");
+
   let $shopsTarget = document.getElementById("shops-card-target"),
     $loader = createLoaderElement();
 
@@ -44,17 +45,17 @@ const setupModal = () => {
   let $shopModal = document.getElementById("shop-modal"),
     $modalBody = $shopModal.querySelector(".modal-body"),
     $modalHeader = $shopModal.querySelector(".modal-header"),
-    modal = new bs.Modal($shopModal, { backdrop: "static" }),
+    modal = new bs.Modal($shopModal, {}),
     _shop;
 
   $shopModal.addEventListener("show.bs.modal", () => {
     let $loader = createLoaderElement();
 
     $modalBody.appendChild($loader);
-    fetch(_shop.apiPath)
+    fetch(resolvePath(_shop.apiPath))
       .then((res) => res.json())
       .then((fullInfoShop) => {
-	$loader.remove();
+				$loader.remove();
         $modalHeader.insertAdjacentHTML(
           "afterbegin",
           createModalHeaderHTMLContent(fullInfoShop),
@@ -80,7 +81,11 @@ const setupModal = () => {
 
 const createModalHeaderHTMLContent = (shop) => {
   return `
-    <img class="menu-logo d-lg-none" src="${shop.logo}" alt="${shop.name}" />
+    <img 
+    	class="menu-logo d-lg-none" 
+    	src="${resolvePath(shop.logo)}" 
+    	alt="${shop.name}" 
+    />
     <h4 class="fs-2 px-3 d-lg-none text-primary">${shop.name}</h4>
     <button
         class="btn-close"
@@ -96,7 +101,11 @@ const createModalBodyHTMLContent = (shop) => {
     <div class="row g-0">
       <div class="col p-3 d-none d-lg-block col-lg-4">
         <div class="sticky-top">
-          <img class="large-logo d-block mx-auto mb-3" src="${shop.logo}" alt="${shop.name}" />
+          <img 
+          	class="large-logo d-block mx-auto mb-3" 
+          	src="${resolvePath(shop.logo)}" 
+          	alt="${shop.name}" 
+          />
           <p class="fs-6 opacity-75 text-center">
           	<b>Local</b> ${shop.locals.join("|")}
           </p>
@@ -197,7 +206,11 @@ const createModalCaruselItemsHTML = (images) => {
   images.forEach((img, index) => {
     items += `
       <div class="carousel-item carousel-shop-item ${index === 0 ? "active" : ""}">
-        <img class="carousel-shop-item__img" src="${img.src}" alt="${img.alt}" />
+        <img 
+        	class="carousel-shop-item__img" 
+        	src="${resolvePath(img.src)}" 
+        	alt="${img.alt}" 
+        />
       </div>
     `;
   });
@@ -281,7 +294,11 @@ const createShopCard = (shop, delay = 0) => {
     "afterbegin",
     `
     <div class="card-shop card my-3 p-2">
-      <img src="${shop.logo}" class="card-img-top logo mx-auto" alt="${shop.name}">
+      <img 
+      	src="${resolvePath(shop.logo)}" 
+      	class="card-img-top logo mx-auto" 
+      	alt="${shop.name}"
+      >
       <div class="card-body p-1">
         <h5 
         	class="ff-lato text-center m-0 fs-6 text-body-secondary mt-2"
@@ -378,6 +395,12 @@ const createLoaderElement = () => {
 
   $loader.classList.add("loader", "my-5");
   return $loader;
+};
+
+const resolvePath = (path) => {
+	let url = `${pathprefix}${path}`;
+
+	return url.replace(/\/\//g, "/");
 };
 
 document.addEventListener("DOMContentLoaded", main);
