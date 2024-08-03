@@ -2,8 +2,6 @@ import * as bs from "./bootstrap.js";
 import breakpoint from "./breakpoint.js";
 import pathprefix from "./pathprefix.js";
 
-const API_SHOPS = resolvePath("api/all-shops-info.json");
-
 let shops;
 
 const main = () => {
@@ -15,6 +13,8 @@ const main = () => {
 const loadShopsCard = () => {
   let $shopsTarget = document.getElementById("shops-card-target"),
     $loader = createLoaderElement();
+
+  const API_SHOPS = resolvePath("api/all-shops-info.json");
 
   $shopsTarget.insertAdjacentElement("afterbegin", $loader);
   fetch(API_SHOPS)
