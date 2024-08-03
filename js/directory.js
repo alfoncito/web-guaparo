@@ -2,7 +2,7 @@ import * as bs from "./bootstrap.js";
 import breakpoint from "./breakpoint.js";
 import pathprefix from "./pathprefix.js";
 
-const API_SHOPS = `${pathprefix}api/all-shops-info.json`;
+const API_SHOPS = resolvePath("api/all-shops-info.json");
 
 let shops;
 
@@ -52,10 +52,10 @@ const setupModal = () => {
     let $loader = createLoaderElement();
 
     $modalBody.appendChild($loader);
-    fetch(_shop.apiPath)
+    fetch(resolevePath(_shop.apiPath))
       .then((res) => res.json())
       .then((fullInfoShop) => {
-	$loader.remove();
+				$loader.remove();
         $modalHeader.insertAdjacentHTML(
           "afterbegin",
           createModalHeaderHTMLContent(fullInfoShop),
@@ -294,7 +294,11 @@ const createShopCard = (shop, delay = 0) => {
     "afterbegin",
     `
     <div class="card-shop card my-3 p-2">
-      <img src="${shop.logo}" class="card-img-top logo mx-auto" alt="${shop.name}">
+      <img 
+      	src="${resolvePath(shop.logo)}" 
+      	class="card-img-top logo mx-auto" 
+      	alt="${shop.name}"
+      >
       <div class="card-body p-1">
         <h5 
         	class="ff-lato text-center m-0 fs-6 text-body-secondary mt-2"
